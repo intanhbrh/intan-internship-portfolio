@@ -426,18 +426,6 @@
 
 <hr class="divider" style="max-width:1060px;margin:0 auto;"/>
 
-<!-- STATS -->
-<section id="impact" style="padding-top:4rem;padding-bottom:4rem;">
-  <p class="section-label">Impact</p>
-  <h2 class="section-title">By the Numbers</h2>
-  <div class="stats-grid">
-    <div class="stat-card"><span class="stat-num">95.7%</span><p class="stat-label">Students believe system improves dismissal</p></div>
-    <div class="stat-card"><span class="stat-num">6</span><p class="stat-label">Development Phases Planned (Roadmap)</p></div>
-    <div class="stat-card"><span class="stat-num">3</span><p class="stat-label">Weeks Completed (ongoing)</p></div>
-  </div>
-</section>
-
-<hr class="divider" style="max-width:1060px;margin:0 auto;"/>
 
 <!-- PROJECT -->
 <section id="project">
@@ -541,46 +529,7 @@
 <hr class="divider" style="max-width:1060px;margin:0 auto;"/>
 
 
-<!-- ROADMAP -->
-<section id="roadmap">
-  <p class="section-label">Product Roadmap</p>
-  <h2 class="section-title">Elevare's Phases</h2>
-  <p class="section-sub">From initial concept to multi-school expansion</p>
-  <div class="roadmap-grid">
-    <div class="roadmap-phase done">
-      <div class="roadmap-num">Phase 1</div>
-      <div class="roadmap-dot"></div>
-      <div class="roadmap-label">Formation of idea &amp; app concept</div>
-    </div>
-    <div class="roadmap-phase done">
-      <div class="roadmap-num">Phase 2</div>
-      <div class="roadmap-dot"></div>
-      <div class="roadmap-label">Development of prototype</div>
-    </div>
-    <div class="roadmap-phase active">
-      <div class="roadmap-num">Phase 3 ← Now</div>
-      <div class="roadmap-dot" style="background:var(--accent);animation:pulse 2s infinite;"></div>
-      <div class="roadmap-label">Launch of prototype</div>
-    </div>
-    <div class="roadmap-phase future">
-      <div class="roadmap-num">Phase 4</div>
-      <div class="roadmap-dot"></div>
-      <div class="roadmap-label">Launch of functional app</div>
-    </div>
-    <div class="roadmap-phase future">
-      <div class="roadmap-num">Phase 5</div>
-      <div class="roadmap-dot"></div>
-      <div class="roadmap-label">New CCTV cameras at school entrance</div>
-    </div>
-    <div class="roadmap-phase future">
-      <div class="roadmap-num">Phase 6</div>
-      <div class="roadmap-dot"></div>
-      <div class="roadmap-label">Expansion to sister schools &amp; international schools</div>
-    </div>
-  </div>
-</section>
 
-<hr class="divider" style="max-width:1060px;margin:0 auto;"/>
 
 <!-- SKILLS -->
 <section id="skills">
@@ -648,16 +597,16 @@
   let isLight = false;
 
   // Default: dark mode (night)
-  btn.textContent = '☀️ Day';
+  btn.textContent = '☀️';
 
   function toggleTheme() {
     isLight = !isLight;
     if (isLight) {
       root.classList.add('light');
-      btn.textContent = '🌙 Night';
+      btn.textContent = '🌙';
     } else {
       root.classList.remove('light');
-      btn.textContent = '☀️ Day';
+      btn.textContent = '☀️';
     }
     localStorage.setItem('theme', isLight ? 'light' : 'dark');
   }
@@ -666,7 +615,7 @@
   if (localStorage.getItem('theme') === 'light') {
     isLight = true;
     root.classList.add('light');
-    btn.textContent = '🌙 Night';
+    btn.textContent = '🌙';
   }
 
   // Animate bars on scroll
