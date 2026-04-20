@@ -19,6 +19,24 @@
     --muted: #8884aa;
     --border: rgba(124,109,250,0.18);
     --border2: rgba(124,109,250,0.35);
+    --nav-bg: rgba(10,10,15,0.85);
+    --hero-h1-from: #fff;
+  }
+  :root.light {
+    --bg: #f5f4ff;
+    --bg2: #ede9ff;
+    --bg3: #eae6ff;
+    --card: #ffffff;
+    --accent: #5b4de0;
+    --accent2: #4a3cc7;
+    --accent3: #9b72c8;
+    --teal: #0e9e7a;
+    --text: #1a1730;
+    --muted: #5a5680;
+    --border: rgba(91,77,224,0.15);
+    --border2: rgba(91,77,224,0.3);
+    --nav-bg: rgba(245,244,255,0.9);
+    --hero-h1-from: #1a1730;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -28,14 +46,32 @@
     color: var(--text);
     line-height: 1.7;
     overflow-x: hidden;
+    transition: background 0.3s, color 0.3s;
   }
+
+  /* THEME TOGGLE */
+  .theme-toggle {
+    background: var(--card);
+    border: 0.5px solid var(--border2);
+    border-radius: 99px;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.8rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    color: var(--accent2);
+    cursor: pointer;
+    display: flex; align-items: center; gap: 0.4rem;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .theme-toggle:hover { background: var(--bg3); }
 
   /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
     padding: 1rem 3rem;
-    background: rgba(10,10,15,0.85);
+    background: var(--nav-bg);
     backdrop-filter: blur(12px);
     border-bottom: 0.5px solid var(--border);
   }
@@ -90,7 +126,7 @@
     font-family: 'Syne', sans-serif;
     font-size: clamp(2.6rem, 6vw, 4.2rem);
     font-weight: 800; line-height: 1.1;
-    background: linear-gradient(135deg, #fff 30%, var(--accent2) 70%, var(--accent3) 100%);
+    background: linear-gradient(135deg, var(--hero-h1-from) 30%, var(--accent2) 70%, var(--accent3) 100%);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     margin-bottom: 0.5rem;
   }
@@ -158,7 +194,7 @@
     border: 0.5px solid var(--border);
     border-radius: 16px;
     padding: 2rem;
-    transition: border-color 0.2s, transform 0.2s;
+    transition: border-color 0.2s, transform 0.2s, background 0.3s;
   }
   .project-card:hover { border-color: var(--border2); transform: translateY(-3px); }
   .project-tag {
@@ -260,7 +296,7 @@
   .survey-bar-wrap { margin-bottom: 0.5rem; }
   .survey-bar-label { display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 0.3rem; }
   .survey-bar-label .pct { color: var(--accent2); font-weight: 600; }
-  .bar-track { background: rgba(255,255,255,0.06); border-radius: 99px; height: 6px; overflow: hidden; }
+  .bar-track { background: rgba(128,128,180,0.15); border-radius: 99px; height: 6px; overflow: hidden; }
   .bar-fill { height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--accent), var(--teal)); transition: width 1s ease; }
 
   /* ROADMAP */
@@ -337,6 +373,7 @@
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#reflections">Reflections</a></li>
   </ul>
+  <button class="theme-toggle" id="themeBtn" onclick="toggleTheme()">🌙 Night</button>
 </nav>
 
 <!-- HERO -->
@@ -468,7 +505,6 @@
       <div class="tl-reflection">
         <strong>Problem:</strong> Difficulty understanding existing project structure as system was already developed.<br/>
         <strong>Learned:</strong> Gained better understanding of React Native mobile app development · Improved debugging skills.<br/>
-        <strong>Next week:</strong> Creating a room booking system · Assist in returning borrowed iPads.
       </div>
     </div>
 
@@ -487,7 +523,7 @@
       <div class="tl-reflection">
         <strong>Problem:</strong> Difficulty setting up OTP · SMTP config issues · Email server restrictions · SendGrid sender domain not verified (landing in junk).<br/>
         <strong>Learned:</strong> How OTP authentication works via SMTP and third-party services · Improved API troubleshooting skills.<br/>
-        <strong>Next week:</strong> Continue testing real-time ANPR data flow · Connect updated student database when received.
+        
       </div>
     </div>
 
@@ -506,52 +542,6 @@
 
 <hr class="divider" style="max-width:1060px;margin:0 auto;"/>
 
-<!-- SURVEY -->
-<section id="survey">
-  <p class="section-label">User Research</p>
-  <h2 class="section-title">Survey Results</h2>
-  <p class="section-sub">93 responses collected from HELP International School community</p>
-  <div class="survey-grid">
-    <div class="survey-card">
-      <p class="survey-q">Is the name display on the foyer TV large enough?</p>
-      <div class="survey-bar-wrap">
-        <div class="survey-bar-label"><span style="color:var(--muted)">No — needs improvement</span><span class="pct">58.1%</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:58.1%"></div></div>
-      </div>
-      <div class="survey-bar-wrap">
-        <div class="survey-bar-label"><span style="color:var(--muted)">Yes — it's fine</span><span class="pct">41.9%</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:41.9%;background:rgba(124,109,250,0.5)"></div></div>
-      </div>
-      <p style="font-size:0.78rem;color:var(--muted);margin-top:0.75rem;">→ Majority want larger name display on the TV</p>
-    </div>
-    <div class="survey-card">
-      <p class="survey-q">Will the mobile app &amp; system increase dismissal efficiency?</p>
-      <div class="survey-bar-wrap">
-        <div class="survey-bar-label"><span style="color:var(--muted)">Yes</span><span class="pct" style="color:var(--teal)">95.7%</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:95.7%;background:linear-gradient(90deg,var(--teal),#4dd9b8cc)"></div></div>
-      </div>
-      <p style="font-size:0.78rem;color:var(--muted);margin-top:0.75rem;">→ Near-unanimous confidence in the system</p>
-    </div>
-    <div class="survey-card">
-      <p class="survey-q">Where should the student name appear first — school compound entrance or pickup foyer?</p>
-      <div class="survey-bar-wrap">
-        <div class="survey-bar-label"><span style="color:var(--muted)">Both zones</span><span class="pct">52.7%</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:52.7%"></div></div>
-      </div>
-      <div class="survey-bar-wrap">
-        <div class="survey-bar-label"><span style="color:var(--muted)">Foyer / Pickup zone</span><span class="pct">32.3%</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:32.3%;background:rgba(124,109,250,0.5)"></div></div>
-      </div>
-      <div class="survey-bar-wrap">
-        <div class="survey-bar-label"><span style="color:var(--muted)">School compound</span><span class="pct">15.1%</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:15.1%;background:rgba(180,170,255,0.3)"></div></div>
-      </div>
-      <p style="font-size:0.78rem;color:var(--muted);margin-top:0.75rem;">→ Most want dual-zone display — validating the expanded design</p>
-    </div>
-  </div>
-</section>
-
-<hr class="divider" style="max-width:1060px;margin:0 auto;"/>
 
 <!-- ROADMAP -->
 <section id="roadmap">
@@ -654,6 +644,33 @@
 </footer>
 
 <script>
+  // Theme toggle
+  const root = document.documentElement;
+  const btn = document.getElementById('themeBtn');
+  let isLight = false;
+
+  // Default: dark mode (night)
+  btn.textContent = '☀️ Day';
+
+  function toggleTheme() {
+    isLight = !isLight;
+    if (isLight) {
+      root.classList.add('light');
+      btn.textContent = '🌙 Night';
+    } else {
+      root.classList.remove('light');
+      btn.textContent = '☀️ Day';
+    }
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  }
+
+  // Restore saved preference
+  if (localStorage.getItem('theme') === 'light') {
+    isLight = true;
+    root.classList.add('light');
+    btn.textContent = '🌙 Night';
+  }
+
   // Animate bars on scroll
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => {
