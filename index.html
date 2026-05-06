@@ -1,635 +1,686 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Intan Nur Habriah – Internship Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<title>Intan Nur Habriah — Internship Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"/>
 <style>
-  :root {
-    --bg: #0a0a0f;
-    --bg2: #111118;
-    --bg3: #18181f;
-    --card: #1c1c25;
-    --accent: #7c6dfa;
-    --accent2: #b4aaff;
-    --accent3: #e8b4f8;
-    --teal: #4dd9b8;
-    --text: #f0eeff;
-    --muted: #8884aa;
-    --border: rgba(124,109,250,0.18);
-    --border2: rgba(124,109,250,0.35);
-    --nav-bg: rgba(10,10,15,0.85);
-    --hero-h1-from: #fff;
-  }
-  :root.light {
-    --bg: #f5f4ff;
-    --bg2: #ede9ff;
-    --bg3: #eae6ff;
-    --card: #ffffff;
-    --accent: #5b4de0;
-    --accent2: #4a3cc7;
-    --accent3: #9b72c8;
-    --teal: #0e9e7a;
-    --text: #1a1730;
-    --muted: #5a5680;
-    --border: rgba(91,77,224,0.15);
-    --border2: rgba(91,77,224,0.3);
-    --nav-bg: rgba(245,244,255,0.9);
-    --hero-h1-from: #1a1730;
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.7;
-    overflow-x: hidden;
-    transition: background 0.3s, color 0.3s;
-  }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --ink:#0d0d0d;--ink2:#1a1a1a;--paper:#faf9f6;--paper2:#f2f0eb;--paper3:#e8e5de;
+  --accent:#c8401a;--accent-l:#e85d38;--muted:#6b6861;
+  --border:#d4d0c8;--border-dark:#b8b4a8;
+  --mono:'Space Mono',monospace;--serif:'Instrument Serif',serif;--sans:'Space Grotesk',sans-serif;
+}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.6;overflow-x:hidden;}
 
-  /* THEME TOGGLE */
-  .theme-toggle {
-    background: var(--card);
-    border: 0.5px solid var(--border2);
-    border-radius: 99px;
-    padding: 0.35rem 0.9rem;
-    font-size: 0.8rem;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 500;
-    color: var(--accent2);
-    cursor: pointer;
-    display: flex; align-items: center; gap: 0.4rem;
-    transition: all 0.2s;
-    white-space: nowrap;
-  }
-  .theme-toggle:hover { background: var(--bg3); }
+/* CURSOR */
+.cursor{position:fixed;width:10px;height:10px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:multiply;}
+.cursor-ring{position:fixed;width:36px;height:36px;border:1px solid var(--accent);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:.4;transition:width .3s,height .3s;}
 
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1rem 3rem;
-    background: var(--nav-bg);
-    backdrop-filter: blur(12px);
-    border-bottom: 0.5px solid var(--border);
-  }
-  .nav-logo {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800; font-size: 1.1rem;
-    color: var(--accent2);
-    letter-spacing: 0.04em;
-    text-decoration: none;
-  }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a {
-    color: var(--muted); font-size: 0.85rem; text-decoration: none;
-    letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--accent2); }
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 3rem;background:rgba(250,249,246,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:var(--mono);font-size:.85rem;font-weight:700;color:var(--ink);text-decoration:none;letter-spacing:.05em;}
+.nav-logo span{color:var(--accent);}
+.nav-links{display:flex;gap:2.5rem;list-style:none;}
+.nav-links a{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;font-weight:500;transition:color .2s;}
+.nav-links a:hover{color:var(--accent);}
+.nav-week{font-family:var(--mono);font-size:.68rem;background:var(--ink);color:var(--paper);padding:.3rem .8rem;letter-spacing:.06em;}
 
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: flex; align-items: center; justify-content: center;
-    padding: 8rem 2rem 4rem;
-    position: relative; overflow: hidden;
-    text-align: center;
-  }
-  .hero-bg {
-    position: absolute; inset: 0; z-index: 0;
-    background:
-      radial-gradient(ellipse 60% 55% at 50% 30%, rgba(124,109,250,0.12) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 30% at 80% 70%, rgba(180,170,255,0.07) 0%, transparent 60%),
-      radial-gradient(ellipse 35% 25% at 20% 60%, rgba(77,217,184,0.06) 0%, transparent 60%);
-  }
-  .hero-grid {
-    position: absolute; inset: 0; z-index: 0;
-    background-image:
-      linear-gradient(rgba(124,109,250,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(124,109,250,0.04) 1px, transparent 1px);
-    background-size: 48px 48px;
-  }
-  .hero-content { position: relative; z-index: 1; max-width: 780px; }
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: rgba(124,109,250,0.12); border: 0.5px solid var(--border2);
-    border-radius: 99px; padding: 0.4rem 1rem;
-    font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--accent2); font-weight: 500; margin-bottom: 2rem;
-  }
-  .hero-badge span { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); display: inline-block; animation: pulse 2s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.4)} }
-  .hero h1 {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(2.6rem, 6vw, 4.2rem);
-    font-weight: 800; line-height: 1.1;
-    background: linear-gradient(135deg, var(--hero-h1-from) 30%, var(--accent2) 70%, var(--accent3) 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    margin-bottom: 0.5rem;
-  }
-  .hero-role {
-    font-size: 1.15rem; color: var(--accent2); font-weight: 300;
-    letter-spacing: 0.04em; margin-bottom: 1.5rem;
-    font-style: italic;
-  }
-  .hero-meta {
-    display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem;
-    margin-bottom: 2.5rem;
-  }
-  .hero-meta-item { font-size: 0.85rem; color: var(--muted); }
-  .hero-meta-item strong { color: var(--text); font-weight: 500; display: block; }
-  .hero-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-  .btn-primary {
-    background: var(--accent); color: #fff;
-    padding: 0.75rem 2rem; border-radius: 8px;
-    font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 500;
-    text-decoration: none; transition: background 0.2s, transform 0.15s;
-    border: none; cursor: pointer;
-  }
-  .btn-primary:hover { background: var(--accent2); color: var(--bg); transform: translateY(-2px); }
-  .btn-outline {
-    background: transparent; color: var(--accent2);
-    padding: 0.75rem 2rem; border-radius: 8px;
-    font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 500;
-    text-decoration: none; transition: all 0.2s;
-    border: 1px solid var(--border2); cursor: pointer;
-  }
-  .btn-outline:hover { background: rgba(124,109,250,0.1); transform: translateY(-2px); }
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:80px;}
+.hero-left{padding:6rem 4rem 4rem 5rem;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--border);}
+.hero-right{position:relative;overflow:hidden;background:var(--ink2);}
+.hero-right img{width:100%;height:100%;object-fit:cover;opacity:.65;display:block;}
+.hero-right-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(200,64,26,.45) 0%,transparent 60%);}
+.hero-right-caption{position:absolute;bottom:2.5rem;left:2.5rem;right:2.5rem;font-family:var(--mono);font-size:.62rem;color:rgba(255,255,255,.5);letter-spacing:.1em;text-transform:uppercase;border-top:1px solid rgba(255,255,255,.12);padding-top:1rem;display:flex;justify-content:space-between;}
+.hero-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;}
+.hero-placeholder p{font-family:var(--mono);font-size:.62rem;letter-spacing:.15em;color:rgba(255,255,255,.18);text-transform:uppercase;text-align:center;padding:0 2rem;}
+.hero-eyebrow{font-family:var(--mono);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem;}
+.hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--accent);}
+.hero h1{font-family:var(--serif);font-size:clamp(3rem,5vw,5rem);font-weight:400;line-height:1.05;margin-bottom:.25rem;}
+.hero h1 em{color:var(--accent);font-style:italic;}
+.hero-subtitle{font-family:var(--mono);font-size:.75rem;color:var(--muted);letter-spacing:.08em;margin-bottom:2.5rem;margin-top:.75rem;}
+.hero-details{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:3rem;}
+.hero-detail{border-left:2px solid var(--border);padding-left:.75rem;}
+.hero-detail dt{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.2rem;}
+.hero-detail dd{font-size:.8rem;font-weight:500;}
+.hero-cta{display:flex;gap:1rem;align-items:center;}
+.btn-primary{background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:.8rem 2rem;border:none;cursor:pointer;transition:background .2s,transform .15s;display:inline-block;}
+.btn-primary:hover{background:var(--accent);transform:translateY(-2px);}
+.btn-ghost{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:.8rem 1.5rem;border:1px solid var(--border);transition:all .2s;display:inline-block;}
+.btn-ghost:hover{border-color:var(--ink);color:var(--ink);}
+.stack-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.25rem;}
+.stack-pill{font-family:var(--mono);font-size:.62rem;letter-spacing:.07em;border:1px solid var(--border-dark);padding:.28rem .7rem;color:var(--muted);transition:all .2s;cursor:default;}
+.stack-pill:hover{border-color:var(--accent);color:var(--accent);}
 
-  /* SCHOOLS */
-  .school-badges {
-    display: flex; justify-content: center; align-items: center; gap: 1.5rem;
-    margin-top: 3rem; flex-wrap: wrap;
-  }
-  .school-badge {
-    display: flex; align-items: center; gap: 0.6rem;
-    background: var(--card); border: 0.5px solid var(--border);
-    border-radius: 10px; padding: 0.6rem 1.1rem;
-    font-size: 0.82rem; color: var(--muted); font-weight: 500;
-  }
-  .school-dot { width: 8px; height: 8px; border-radius: 50%; }
-  .dot-purple { background: var(--accent); }
-  .dot-teal { background: var(--teal); }
+/* MARQUEE */
+.marquee-wrap{overflow:hidden;padding:.7rem 0;background:var(--ink);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.marquee-track{display:flex;animation:marquee 30s linear infinite;white-space:nowrap;}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee-item{font-family:var(--mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;padding:0 2.5rem;display:flex;align-items:center;gap:1.5rem;color:rgba(250,249,246,.5);}
+.marquee-item b{color:var(--accent-l);}
 
-  /* SECTIONS */
-  section { padding: 6rem 2rem; max-width: 1060px; margin: 0 auto; }
-  .section-label {
-    font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--accent2); font-weight: 600; margin-bottom: 0.75rem;
-  }
-  .section-title {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-    font-weight: 700; margin-bottom: 1rem; line-height: 1.2;
-  }
-  .section-sub { font-size: 1rem; color: var(--muted); max-width: 560px; }
-  .divider { border: none; border-top: 0.5px solid var(--border); margin: 0; }
+/* SECTIONS */
+.section{padding:6rem 5rem;max-width:1280px;margin:0 auto;}
+.section-header{display:flex;align-items:flex-start;gap:2rem;margin-bottom:4rem;}
+.section-num{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;color:var(--muted);padding-top:.5rem;flex-shrink:0;}
+.section-label{font-family:var(--mono);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem;}
+.section-title{font-family:var(--serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:400;line-height:1.15;}
+.section-title em{color:var(--accent);font-style:italic;}
+.section-sub{font-size:.88rem;color:var(--muted);margin-top:.6rem;max-width:480px;}
+hr.rule{border:none;border-top:1px solid var(--border);max-width:1280px;margin:0 auto;}
 
-  /* PROJECT CARD */
-  .project-card {
-    background: var(--card);
-    border: 0.5px solid var(--border);
-    border-radius: 16px;
-    padding: 2rem;
-    transition: border-color 0.2s, transform 0.2s, background 0.3s;
-  }
-  .project-card:hover { border-color: var(--border2); transform: translateY(-3px); }
-  .project-tag {
-    display: inline-block;
-    background: rgba(124,109,250,0.15);
-    color: var(--accent2);
-    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em;
-    text-transform: uppercase; padding: 0.25rem 0.7rem; border-radius: 6px;
-    margin-bottom: 1rem;
-  }
-  .project-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.35rem; font-weight: 700; margin-bottom: 0.75rem;
-  }
-  .project-desc { font-size: 0.93rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem; }
-  .tech-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-  .pill {
-    background: rgba(77,217,184,0.1);
-    border: 0.5px solid rgba(77,217,184,0.25);
-    color: var(--teal); font-size: 0.75rem; font-weight: 500;
-    padding: 0.25rem 0.7rem; border-radius: 99px;
-  }
+/* ABOUT */
+.about-layout{display:grid;grid-template-columns:3fr 2fr;gap:5rem;}
+.about-text p{font-size:.95rem;color:var(--muted);line-height:1.9;margin-bottom:1.2rem;}
+.about-text p strong{color:var(--ink);font-weight:600;}
+.info-table{width:100%;border-collapse:collapse;}
+.info-table tr{border-bottom:1px solid var(--border);}
+.info-table tr:last-child{border-bottom:none;}
+.info-table td{padding:.85rem 0;vertical-align:top;font-size:.8rem;}
+.info-table td:first-child{font-family:var(--mono);font-size:.58rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);padding-right:1.5rem;white-space:nowrap;padding-top:.95rem;}
+.info-table td:last-child{color:var(--ink);font-weight:500;}
+.progress-bar-outer{background:var(--paper3);border:1px solid var(--border);height:5px;margin-top:2rem;}
+.progress-bar-inner{height:100%;background:var(--accent);width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1);}
+.progress-labels{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.58rem;color:var(--muted);letter-spacing:.07em;margin-top:.5rem;}
 
-  /* STATS */
-  .stats-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 1rem; margin-top: 3rem;
-  }
-  .stat-card {
-    background: var(--card); border: 0.5px solid var(--border);
-    border-radius: 12px; padding: 1.5rem; text-align: center;
-  }
-  .stat-num {
-    font-family: 'Syne', sans-serif; font-size: 2.2rem; font-weight: 800;
-    color: var(--accent2); display: block; line-height: 1;
-  }
-  .stat-label { font-size: 0.8rem; color: var(--muted); margin-top: 0.4rem; }
+/* ACTIVITIES */
+.activities-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border);}
+.activity-cell{padding:2.25rem 1.75rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border);transition:background .2s;}
+.activity-cell:hover{background:var(--paper2);}
+.activity-cell:nth-child(3n){border-right:none;}
+.activity-cell:nth-last-child(-n+3){border-bottom:none;}
+.activity-icon{font-size:1.2rem;margin-bottom:1rem;}
+.activity-title{font-size:.88rem;font-weight:600;margin-bottom:.4rem;}
+.activity-desc{font-size:.76rem;color:var(--muted);line-height:1.7;}
 
-  /* TIMELINE */
-  .timeline { position: relative; padding-left: 2rem; }
-  .timeline::before {
-    content: ''; position: absolute; left: 0.45rem; top: 0; bottom: 0;
-    width: 1px; background: var(--border2);
-  }
-  .tl-week {
-    position: relative; margin-bottom: 2.5rem;
-    animation: fadeUp 0.5s ease both;
-  }
-  @keyframes fadeUp { from { opacity:0; transform: translateY(16px); } to { opacity:1; transform: none; } }
-  .tl-dot {
-    position: absolute; left: -1.73rem; top: 0.35rem;
-    width: 14px; height: 14px; border-radius: 50%;
-    background: var(--accent); border: 2px solid var(--bg);
-    box-shadow: 0 0 0 3px rgba(124,109,250,0.2);
-  }
-  .tl-week-label {
-    font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em;
-    color: var(--accent2); font-weight: 600; margin-bottom: 0.35rem;
-  }
-  .tl-week-title {
-    font-family: 'Syne', sans-serif; font-weight: 700;
-    font-size: 1.05rem; margin-bottom: 0.5rem;
-  }
-  .tl-days { display: flex; flex-direction: column; gap: 0.4rem; }
-  .tl-day {
-    display: flex; gap: 0.75rem;
-    background: var(--bg3); border: 0.5px solid var(--border);
-    border-radius: 8px; padding: 0.6rem 0.9rem;
-    font-size: 0.86rem;
-  }
-  .tl-day-date { color: var(--accent2); font-weight: 600; min-width: 60px; font-size: 0.78rem; }
-  .tl-day-text { color: var(--muted); }
-  .tl-reflection {
-    margin-top: 0.75rem;
-    background: rgba(124,109,250,0.06);
-    border-left: 2px solid var(--accent);
-    border-radius: 0 8px 8px 0;
-    padding: 0.75rem 1rem; font-size: 0.85rem; color: var(--muted);
-  }
-  .tl-reflection strong { color: var(--accent2); font-weight: 500; }
+/* PROJECTS */
+.project-block{border-top:1px solid var(--border);padding:4rem 0;display:grid;grid-template-columns:1fr 1.35fr;gap:5rem;align-items:start;}
+.project-block:last-child{border-bottom:1px solid var(--border);}
+.project-meta{position:sticky;top:6rem;}
+.project-index{font-family:var(--mono);font-size:.6rem;letter-spacing:.15em;color:var(--muted);margin-bottom:1.25rem;text-transform:uppercase;}
+.project-tag-label{display:inline-block;font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:.22rem .7rem;margin-bottom:1.25rem;}
+.project-tag-label.secondary{background:var(--paper3);color:var(--muted);}
+.project-title{font-family:var(--serif);font-size:1.9rem;font-weight:400;line-height:1.2;margin-bottom:1rem;}
+.project-title em{color:var(--accent);font-style:italic;}
+.project-desc{font-size:.85rem;color:var(--muted);line-height:1.85;margin-bottom:1.5rem;}
+.contrib-h{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.7rem;}
+.contrib-list{list-style:none;display:flex;flex-direction:column;gap:.4rem;}
+.contrib-list li{font-size:.8rem;color:var(--ink);padding:.45rem 0;border-bottom:1px solid var(--paper3);display:flex;gap:.7rem;align-items:flex-start;}
+.contrib-list li::before{content:'→';font-family:var(--mono);color:var(--accent);font-size:.68rem;flex-shrink:0;margin-top:.1rem;}
 
-  /* SKILLS */
-  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 2.5rem; }
-  .skill-card {
-    background: var(--card); border: 0.5px solid var(--border);
-    border-radius: 12px; padding: 1.25rem 1.5rem;
-  }
-  .skill-icon { font-size: 1.5rem; margin-bottom: 0.6rem; }
-  .skill-title { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 0.35rem; }
-  .skill-desc { font-size: 0.83rem; color: var(--muted); }
+/* PROJECT IMAGES */
+.project-images{display:flex;flex-direction:column;gap:1rem;}
+.proj-img-main{width:100%;aspect-ratio:16/10;background:var(--paper3);border:1px solid var(--border);overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.proj-img-main img{width:100%;height:100%;object-fit:cover;display:block;}
+.proj-img-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.proj-img-sm{aspect-ratio:4/3;background:var(--paper3);border:1px solid var(--border);overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.proj-img-sm img{width:100%;height:100%;object-fit:cover;display:block;}
+.img-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;width:100%;height:100%;}
+.img-ph-icon{font-size:1.4rem;opacity:.25;}
+.img-ph-label{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--border-dark);text-align:center;padding:0 .5rem;}
+.img-caption{font-family:var(--mono);font-size:.58rem;letter-spacing:.08em;color:var(--muted);margin-top:.4rem;text-align:center;}
 
-  /* SURVEY */
-  .survey-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-top: 2.5rem; }
-  .survey-card {
-    background: var(--card); border: 0.5px solid var(--border);
-    border-radius: 14px; padding: 1.5rem;
-  }
-  .survey-q { font-size: 0.88rem; color: var(--muted); margin-bottom: 1rem; line-height: 1.5; }
-  .survey-bar-wrap { margin-bottom: 0.5rem; }
-  .survey-bar-label { display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 0.3rem; }
-  .survey-bar-label .pct { color: var(--accent2); font-weight: 600; }
-  .bar-track { background: rgba(128,128,180,0.15); border-radius: 99px; height: 6px; overflow: hidden; }
-  .bar-fill { height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--accent), var(--teal)); transition: width 1s ease; }
+/* TIMELINE */
+.timeline-outer{display:grid;grid-template-columns:180px 1fr;gap:0;}
+.timeline-nav{border-right:1px solid var(--border);padding-right:2rem;position:sticky;top:5.5rem;height:fit-content;}
+.tl-nav-item{display:block;padding:.7rem 0;border-bottom:1px solid var(--paper3);font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;}
+.tl-nav-item:hover,.tl-nav-item.active{color:var(--accent);}
+.timeline-weeks{padding-left:3rem;}
+.week-card{margin-bottom:2.5rem;border:1px solid var(--border);transition:border-color .2s;}
+.week-card:hover{border-color:var(--border-dark);}
+.week-header{display:grid;grid-template-columns:auto 1fr auto;gap:1.5rem;align-items:center;padding:1.5rem 1.75rem;border-bottom:1px solid transparent;background:var(--paper2);cursor:pointer;user-select:none;transition:border-color .2s;}
+.week-card.open .week-header{border-bottom-color:var(--border);}
+.week-num{font-family:var(--mono);font-size:1.8rem;font-weight:700;color:var(--paper3);line-height:1;}
+.week-label{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.2rem;}
+.week-title{font-size:.95rem;font-weight:600;color:var(--ink);}
+.week-toggle{font-family:var(--mono);font-size:.9rem;color:var(--muted);transition:transform .3s;flex-shrink:0;}
+.week-card.open .week-toggle{transform:rotate(45deg);}
+.week-body{display:none;padding:1.75rem;}
+.week-card.open .week-body{display:block;}
+.day-rows{display:flex;flex-direction:column;gap:.65rem;margin-bottom:1.5rem;}
+.day-row{display:grid;grid-template-columns:95px 1fr;gap:1rem;}
+.day-date{font-family:var(--mono);font-size:.65rem;letter-spacing:.08em;color:var(--accent);font-weight:700;padding-top:.1rem;}
+.day-text{font-size:.8rem;color:var(--muted);line-height:1.65;}
+.week-reflection{background:var(--paper2);border-left:3px solid var(--accent);padding:1.2rem 1.4rem;}
+.week-reflection h5{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.7rem;}
+.refl-row{display:grid;grid-template-columns:72px 1fr;gap:.65rem;margin-bottom:.45rem;align-items:baseline;}
+.refl-row:last-child{margin-bottom:0;}
+.refl-key{font-family:var(--mono);font-size:.58rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;}
+.refl-val{font-size:.78rem;color:var(--ink2);}
+.week-card.future{opacity:.45;pointer-events:none;}
 
-  /* ROADMAP */
-  .roadmap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0; margin-top: 2.5rem; border: 0.5px solid var(--border); border-radius: 14px; overflow: hidden; }
-  .roadmap-phase {
-    padding: 1.5rem 1.25rem;
-    border-right: 0.5px solid var(--border);
-    position: relative;
-  }
-  .roadmap-phase:last-child { border-right: none; }
-  .roadmap-phase.active { background: rgba(124,109,250,0.1); }
-  .roadmap-num {
-    font-family: 'Syne', sans-serif; font-size: 0.7rem; font-weight: 800;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--muted); margin-bottom: 0.5rem;
-  }
-  .roadmap-label { font-size: 0.85rem; font-weight: 500; color: var(--text); line-height: 1.4; }
-  .roadmap-dot {
-    width: 8px; height: 8px; border-radius: 50%;
-    background: var(--accent); margin-bottom: 0.6rem;
-  }
-  .roadmap-phase.done .roadmap-dot { background: var(--teal); }
-  .roadmap-phase.future .roadmap-dot { background: var(--muted); opacity: 0.4; }
+/* SKILLS BENTO */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);}
+.bento-cell{background:var(--paper);padding:1.75rem 1.5rem;transition:background .2s;}
+.bento-cell:hover{background:var(--paper2);}
+.bento-cell.wide{grid-column:span 2;}
+.bento-big-num{font-family:var(--serif);font-size:3.5rem;color:var(--accent);line-height:1;margin-bottom:.4rem;}
+.bento-title{font-size:.88rem;font-weight:600;margin-bottom:.35rem;}
+.bento-desc{font-size:.73rem;color:var(--muted);line-height:1.65;}
+.bento-icon{font-size:1.2rem;margin-bottom:.9rem;}
 
-  /* REFLECTIONS */
-  .reflection-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 2.5rem; }
-  @media (max-width: 640px) { .reflection-grid { grid-template-columns: 1fr; } }
-  .reflection-card {
-    background: var(--card); border: 0.5px solid var(--border);
-    border-radius: 14px; padding: 1.5rem;
-  }
-  .reflection-head { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
-  .reflection-icon {
-    width: 36px; height: 36px; border-radius: 10px;
-    background: rgba(124,109,250,0.15);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1rem;
-  }
-  .reflection-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem; }
-  .reflection-body { font-size: 0.86rem; color: var(--muted); line-height: 1.65; }
+/* REFLECTIONS */
+.reflections-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);}
+.refl-card{padding:2.5rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border);}
+.reflections-grid .refl-card:nth-child(2n){border-right:none;}
+.reflections-grid .refl-card:nth-last-child(-n+2){border-bottom:none;}
+.refl-card-num{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;color:var(--muted);margin-bottom:1rem;text-transform:uppercase;}
+.refl-card-title{font-family:var(--serif);font-size:1.3rem;font-weight:400;margin-bottom:.9rem;line-height:1.3;}
+.refl-card-body{font-size:.8rem;color:var(--muted);line-height:1.85;}
 
-  /* FOOTER */
-  footer {
-    text-align: center; padding: 3rem 2rem;
-    border-top: 0.5px solid var(--border);
-    font-size: 0.82rem; color: var(--muted);
-  }
-  footer a { color: var(--accent2); text-decoration: none; }
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:3rem 5rem;display:grid;grid-template-columns:1fr auto;align-items:end;gap:2rem;}
+.footer-name{font-family:var(--serif);font-size:1.4rem;display:block;margin-bottom:.25rem;}
+footer p{font-size:.76rem;color:var(--muted);}
+.footer-right{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;color:var(--muted);text-align:right;line-height:2.2;}
 
-  /* ABOUT */
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; margin-top: 2.5rem; }
-  @media (max-width: 700px) { .about-grid { grid-template-columns: 1fr; } }
-  .about-text p { font-size: 0.95rem; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
-  .info-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
-  .info-list li { display: flex; gap: 0.75rem; align-items: flex-start; font-size: 0.88rem; }
-  .info-list li span:first-child { color: var(--accent2); font-weight: 600; min-width: 90px; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; padding-top: 0.15rem; }
-  .info-list li span:last-child { color: var(--muted); }
+/* ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease;}
+.fade-up.visible{opacity:1;transform:none;}
 
-  @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; }
-    .nav-links { display: none; }
-  }
+/* RESPONSIVE */
+@media(max-width:960px){
+  .hero{grid-template-columns:1fr;}
+  .hero-right{height:45vw;}
+  .hero-left{padding:4rem 2rem 2rem;}
+  .section{padding:4rem 2rem;}
+  .about-layout,.project-block{grid-template-columns:1fr;}
+  .project-meta{position:static;}
+  .activities-grid{grid-template-columns:1fr 1fr;}
+  .activity-cell:nth-child(2n){border-right:none;}
+  .activity-cell:nth-child(3n){border-right:1px solid var(--border);}
+  .activity-cell:nth-child(2n){border-right:none;}
+  .bento{grid-template-columns:1fr 1fr;}
+  .timeline-outer{grid-template-columns:1fr;}
+  .timeline-nav{display:none;}
+  .timeline-weeks{padding-left:0;}
+  .reflections-grid{grid-template-columns:1fr;}
+  .refl-card{border-right:none!important;border-bottom:1px solid var(--border)!important;}
+  nav{padding:1rem 1.5rem;}
+  .nav-links{display:none;}
+  footer{grid-template-columns:1fr;padding:2rem;}
+  .footer-right{text-align:left;}
+}
 </style>
 </head>
 <body>
 
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
 <nav>
-  <a class="nav-logo" href="#">INTAN</a>
+  <a class="nav-logo" href="#"><span>//</span> INTAN</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
-    <li><a href="#project">Project</a></li>
+    <li><a href="#activities">Activities</a></li>
+    <li><a href="#projects">Projects</a></li>
     <li><a href="#timeline">Logbook</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#skills">Skills</a></li>
     <li><a href="#reflections">Reflections</a></li>
   </ul>
-  <button class="theme-toggle" id="themeBtn" onclick="toggleTheme()">🌙</button>
+  <span class="nav-week">WK 04 / 12</span>
 </nav>
 
-<!-- HERO -->
-<section class="hero" style="max-width:100%;padding-top:7rem;">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-content">
-    <div class="hero-badge"><span></span> Currently on internship · Week 3 of 12</div>
-    <h1>Intan Nur Habriah<br/>Binti Azizan</h1>
-    <p class="hero-role">Software Engineering IT Intern</p>
-    <div class="hero-meta">
-      <div class="hero-meta-item"><strong>1231301467</strong>Student ID</div>
-      <div class="hero-meta-item"><strong>HELP International School</strong>Host Company</div>
-      <div class="hero-meta-item"><strong>6 Apr – 5 Jul 2026</strong>Training Period</div>
-      <div class="hero-meta-item"><strong>MMU · </strong>Industrial Training</div>
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Internship Portfolio · 2026</p>
+    <h1>Intan Nur<br/><em>Habriah</em><br/>Binti Azizan</h1>
+    <p class="hero-subtitle">Software Engineering &amp; IT Support Intern</p>
+    <dl class="hero-details">
+      <div class="hero-detail"><dt>Student ID</dt><dd>1231301467</dd></div>
+      <div class="hero-detail"><dt>University</dt><dd>Multimedia University · FCI</dd></div>
+      <div class="hero-detail"><dt>Host Company</dt><dd>HELP International School</dd></div>
+      <div class="hero-detail"><dt>Duration</dt><dd>6 Apr – 5 Jul 2026</dd></div>
+      <div class="hero-detail"><dt>Company Sup.</dt><dd>Lau Sie Kee</dd></div>
+      <div class="hero-detail"><dt>Faculty Sup.</dt><dd>Lim Siew Ling</dd></div>
+    </dl>
+    <div class="hero-cta">
+      <a href="#timeline" class="btn-primary">View Logbook</a>
+      <a href="#projects" class="btn-ghost">See Projects</a>
     </div>
-    <div class="hero-actions">
-      <a href="#timeline" class="btn-primary">View Logbook →</a>
-      <a href="#project" class="btn-outline">See Project</a>
+    <div style="margin-top:2.5rem;">
+      <p style="font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.7rem;">Tech Stack</p>
+      <div class="stack-row">
+        <span class="stack-pill">React Native</span><span class="stack-pill">Expo</span>
+        <span class="stack-pill">Node.js</span><span class="stack-pill">MySQL</span>
+        <span class="stack-pill">Socket.IO</span><span class="stack-pill">SendGrid</span>
+        <span class="stack-pill">EAS Build</span><span class="stack-pill">DNS Config</span>
+      </div>
     </div>
-    <div class="school-badges">
-      <div class="school-badge"><div class="school-dot dot-purple"></div>Multimedia University · FCI</div>
-      <div class="school-badge"><div class="school-dot dot-teal"></div>HELP International School · EdTech</div>
+  </div>
+  <div class="hero-right" id="heroRight">
+    <img src="work1.jpg" alt="Intan at HELP International School" id="heroImg"/>
+    <div class="hero-right-overlay"></div>
+    <div class="hero-right-caption">
+      <span>HELP International School · KL</span>
+      <span>EdTech Department · 2026</span>
     </div>
   </div>
 </section>
 
-<hr class="divider" style="max-width:1060px;margin:0 auto;"/>
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <div class="marquee-item"><b>✦</b> ANPR Pickup System <b>✦</b> React Native <b>✦</b> SendGrid OTP <b>✦</b> Socket.IO <b>✦</b> Server Migration <b>✦</b> Room Booking <b>✦</b> IT Support <b>✦</b> DNS Config <b>✦</b> Expo EAS <b>✦</b> MySQL <b>✦</b> Parent Login <b>✦</b> Week 04 of 12</div>
+    <div class="marquee-item"><b>✦</b> ANPR Pickup System <b>✦</b> React Native <b>✦</b> SendGrid OTP <b>✦</b> Socket.IO <b>✦</b> Server Migration <b>✦</b> Room Booking <b>✦</b> IT Support <b>✦</b> DNS Config <b>✦</b> Expo EAS <b>✦</b> MySQL <b>✦</b> Parent Login <b>✦</b> Week 04 of 12</div>
+  </div>
+</div>
 
-<!-- ABOUT -->
-<section id="about">
-  <p class="section-label">Background</p>
-  <h2 class="section-title">About My Internship</h2>
-  <div class="about-grid">
+<!-- ─── ABOUT ─── -->
+<hr class="rule"/>
+<section class="section" id="about">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <div>
+      <p class="section-label">Background</p>
+      <h2 class="section-title">About My<br/><em>Internship</em></h2>
+    </div>
+  </div>
+  <div class="about-layout fade-up">
     <div class="about-text">
-      <p>I'm interning at the EdTech Department of HELP International School as a Software Engineering IT Intern, contributing to a real-world school pickup management system called <strong style="color:var(--accent2)">Elevare</strong>.</p>
-      <p>The system uses Automatic Number Plate Recognition (ANPR) cameras to detect when parents arrive at the school, automatically notifying students to proceed to the pickup zone — eliminating the manual name-calling process during dismissal.</p>
-      <p>My day-to-day work spans mobile app development in React Native, backend integration with Node.js, database management with MySQL, and collaborating directly with A-Level student developers.</p>
+      <p>I'm interning at the <strong>EdTech Department of HELP International School</strong> as a Software Engineering &amp; IT Support Intern, contributing to a real-world school pickup management system called <strong>Elevare</strong>.</p>
+      <p>The system uses <strong>Automatic Number Plate Recognition (ANPR)</strong> cameras to detect when parents arrive at the school gate, automatically notifying students to proceed to the pickup zone — eliminating the chaotic manual name-calling process at dismissal time.</p>
+      <p>My role spans mobile app development in React Native, backend integration with Node.js, database management with MySQL, server infrastructure setup, and hands-on IT support — alongside collaborating with A-Level student developers.</p>
+      <p style="font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.65rem;margin-top:2rem;">Internship Progress</p>
+      <div class="progress-bar-outer"><div class="progress-bar-inner" id="progressBar"></div></div>
+      <div class="progress-labels"><span>Week 1 · Apr 6</span><span>← Week 4 · Now</span><span>Week 12 · Jul 5</span></div>
     </div>
     <div>
-      <ul class="info-list">
-       
-        <li><span>Faculty Sup.</span><span>MMU Faculty of Computing and Informatics</span></li>
-        <li><span>Duration</span><span>3 months · 12 weeks</span></li>
-        <li><span>Tech Stack</span><span>React Native, Expo, Node.js, MySQL, Socket.IO, SendGrid</span></li>
-        <li><span>Focus</span><span>Mobile Development, Backend Integration, OTP Auth, APK Deployment</span></li>
-      </ul>
+      <table class="info-table">
+        <tr><td>University</td><td>Multimedia University, FCI Cyberjaya</td></tr>
+        <tr><td>Company</td><td>HELP International School</td></tr>
+        <tr><td>Department</td><td>EdTech / IT</td></tr>
+        <tr><td>Company Sup.</td><td>Lau Sie Kee</td></tr>
+        <tr><td>Faculty Sup.</td><td>Lim Siew Ling</td></tr>
+        <tr><td>Duration</td><td>3 months · 12 weeks</td></tr>
+        <tr><td>Progress</td><td>Week 4 (33% complete)</td></tr>
+        <tr><td>Stack</td><td>React Native, Expo, Node.js, MySQL, Socket.IO, SendGrid, EAS</td></tr>
+      </table>
     </div>
   </div>
 </section>
 
-<hr class="divider" style="max-width:1060px;margin:0 auto;"/>
+<!-- ─── ACTIVITIES ─── -->
+<hr class="rule"/>
+<section class="section" id="activities">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <div>
+      <p class="section-label">Work Activities</p>
+      <h2 class="section-title">Beyond the<br/><em>Code</em></h2>
+      <p class="section-sub">Software development, networking, hardware IT support, and cross-team collaboration.</p>
+    </div>
+  </div>
+  <div class="activities-grid fade-up">
+    <div class="activity-cell"><div class="activity-icon">📱</div><div class="activity-title">Mobile Development</div><div class="activity-desc">Built and improved features in the Elevare React Native app — login, logout, profile UI, parent login, and the full OTP auth flow.</div></div>
+    <div class="activity-cell"><div class="activity-icon">🔐</div><div class="activity-title">OTP Authentication</div><div class="activity-desc">Researched, proposed, and fully implemented secure OTP login via SendGrid — including sender verification to ensure inbox delivery.</div></div>
+    <div class="activity-cell"><div class="activity-icon">🔌</div><div class="activity-title">Real-time Systems</div><div class="activity-desc">Studied Socket.IO integration between the ANPR camera server and the mobile app for live plate-detection events and notifications.</div></div>
+    <div class="activity-cell"><div class="activity-icon">🌐</div><div class="activity-title">Server &amp; Networking</div><div class="activity-desc">Migrated backend from a personal laptop to the school's server domain. Updated IPs, debugged DNS, resolved OTP connectivity failures.</div></div>
+    <div class="activity-cell"><div class="activity-icon">🖥️</div><div class="activity-title">IT Support</div><div class="activity-desc">Hands-on hardware — replaced faulty keyboard/mouse sockets, prepared projector cables for teachers, assisted with PC maintenance.</div></div>
+    <div class="activity-cell"><div class="activity-icon">🏫</div><div class="activity-title">Room Booking System</div><div class="activity-desc">Started development of a new school room booking system — studying architecture, implementing admin features, improving UI/CSS.</div></div>
+  </div>
+</section>
 
+<!-- ─── PROJECTS ─── -->
+<hr class="rule"/>
+<section class="section" id="projects">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <div>
+      <p class="section-label">Main Projects</p>
+      <h2 class="section-title">What I've<br/><em>Built</em></h2>
+    </div>
+  </div>
 
-<!-- PROJECT -->
-<section id="project">
-  <p class="section-label">Main Project</p>
-  <h2 class="section-title">ANPR School Pickup System</h2>
-  <p class="section-sub">A smart dismissal management platform for HELP International School</p>
-  <div style="margin-top:2.5rem;">
-    <div class="project-card">
-      <div class="project-tag">React Native · Node.js · MySQL · Socket.IO</div>
-      <h3 class="project-title"> Automatic Number Plate Recognition Pickup App</h3>
-      <p class="project-desc">
-        Elevare is an ANPR-powered school dismissal system that replaces manual name-calling with automated parent detection. When a camera reads a car's plate at the school entrance, it triggers a real-time push notification to the student's device to proceed to the pickup zone. The system includes a mobile app for students, a backend server handling plate-to-student matching, push notifications via Expo, OTP-based login using school emails, and a live foyer display board showing student names by lane.
-      </p>
-      <div style="margin-bottom:1.25rem;">
-        <p style="font-size:0.78rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);font-weight:600;margin-bottom:0.6rem;">My Contributions</p>
-        <ul style="color:var(--muted);font-size:0.87rem;display:flex;flex-direction:column;gap:0.4rem;padding-left:1rem;">
+  <div class="project-block fade-up">
+    <div class="project-meta">
+      <p class="project-index">Project 01 · Primary</p>
+      <span class="project-tag-label">Live System</span>
+      <h3 class="project-title">Elevare —<br/><em>ANPR Pickup App</em></h3>
+      <p class="project-desc">An ANPR-powered school dismissal system. When a camera reads a car plate at the gate, it triggers a real-time push notification to the student's phone to head to the pickup zone — no more manual name-calling.</p>
+      <div class="stack-row">
+        <span class="stack-pill">React Native</span><span class="stack-pill">Expo</span>
+        <span class="stack-pill">Node.js</span><span class="stack-pill">MySQL</span>
+        <span class="stack-pill">Socket.IO</span><span class="stack-pill">SendGrid</span><span class="stack-pill">EAS</span>
+      </div>
+    </div>
+    <div>
+      <div class="project-images">
+        <div class="proj-img-main" id="pimg1">
+          <img src="work2.jpg" alt="Elevare ANPR App" onerror="document.getElementById('pimg1').innerHTML='<div class=\'img-ph\'><div class=\'img-ph-icon\'>📱</div><span class=\'img-ph-label\'>work2.jpg — App main screen</span></div>'"/>
+        </div>
+        <div class="proj-img-row">
+          <div>
+            <div class="proj-img-sm" id="pimg2">
+              <img src="work3.jpg" alt="OTP Login" onerror="document.getElementById('pimg2').innerHTML='<div class=\'img-ph\'><div class=\'img-ph-icon\'>🔐</div><span class=\'img-ph-label\'>work3.jpg</span></div>'"/>
+            </div>
+            <p class="img-caption">OTP login screen</p>
+          </div>
+          <div>
+            <div class="proj-img-sm" id="pimg3">
+              <img src="work4.jpg" alt="Parent notification" onerror="document.getElementById('pimg3').innerHTML='<div class=\'img-ph\'><div class=\'img-ph-icon\'>🔔</div><span class=\'img-ph-label\'>work4.jpg</span></div>'"/>
+            </div>
+            <p class="img-caption">Parent arrival notification</p>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:1.75rem;">
+        <p class="contrib-h">My Contributions</p>
+        <ul class="contrib-list">
           <li>Implemented login with school email authentication</li>
-          <li>Built and improved user profile page UI</li>
+          <li>Built and improved profile page UI</li>
           <li>Added logout functionality</li>
-          <li>Proposed & researched OTP authentication via SMTP / SendGrid</li>
-          <li>Researched APK build & deployment via Expo EAS</li>
-          <li>Explored Socket.IO real-time communication between camera and app</li>
-          <li>Troubleshot email server configuration for secure OTP delivery</li>
+          <li>Proposed &amp; fully implemented OTP authentication via SendGrid</li>
+          <li>Verified SendGrid sender domain — OTP now lands in inbox</li>
+          <li>Implemented parent login feature to notify children on arrival</li>
+          <li>Redesigned parent UI</li>
+          <li>Updated vehicle plate data in MySQL for ANPR system</li>
+          <li>Migrated backend from personal laptop to school server domain</li>
+          <li>Debugged DNS and OTP connection failures post-migration</li>
+          <li>Researched APK &amp; IPA build/deployment via Expo EAS</li>
+          <li>Explored Apple Developer account for iOS distribution</li>
         </ul>
       </div>
-      <div class="tech-pills">
-        <span class="pill">React Native</span>
-        <span class="pill">Expo</span>
-        <span class="pill">Node.js</span>
-        <span class="pill">MySQL</span>
-        <span class="pill">Socket.IO</span>
-        <span class="pill">SendGrid</span>
-        <span class="pill">AsyncStorage</span>
-        <span class="pill">Expo Push Notifications</span>
-        <span class="pill">EAS Build</span>
-        <span class="pill">react-native-svg</span>
+    </div>
+  </div>
+
+  <div class="project-block fade-up">
+    <div class="project-meta">
+      <p class="project-index">Project 02 · Secondary</p>
+      <span class="project-tag-label secondary">In Development</span>
+      <h3 class="project-title">Room<br/><em>Booking System</em></h3>
+      <p class="project-desc">A school room booking platform for managing and scheduling room usage. Includes admin controls, database design, and UI development — ongoing from Week 3.</p>
+      <div class="stack-row">
+        <span class="stack-pill">Web Dev</span><span class="stack-pill">CSS / UI</span>
+        <span class="stack-pill">Admin Features</span><span class="stack-pill">Database Design</span>
+      </div>
+    </div>
+    <div>
+      <div class="project-images">
+        <div class="proj-img-main" id="pimg5">
+          <img src="work5.jpg" alt="Room Booking System" onerror="document.getElementById('pimg5').innerHTML='<div class=\'img-ph\'><div class=\'img-ph-icon\'>🏫</div><span class=\'img-ph-label\'>work5.jpg — Booking system UI</span></div>'"/>
+        </div>
+        <div class="proj-img-row">
+          <div>
+            <div class="proj-img-sm" id="pimg6">
+              <img src="work6.jpg" alt="Admin panel" onerror="document.getElementById('pimg6').innerHTML='<div class=\'img-ph\'><div class=\'img-ph-icon\'>⚙️</div><span class=\'img-ph-label\'>work6.jpg</span></div>'"/>
+            </div>
+            <p class="img-caption">Admin panel</p>
+          </div>
+          <div>
+            <div class="proj-img-sm" id="pimg7">
+              <img src="work7.jpg" alt="Booking UI" onerror="document.getElementById('pimg7').innerHTML='<div class=\'img-ph\'><div class=\'img-ph-icon\'>📋</div><span class=\'img-ph-label\'>work7.jpg</span></div>'"/>
+            </div>
+            <p class="img-caption">Room booking form</p>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:1.75rem;">
+        <p class="contrib-h">My Contributions</p>
+        <ul class="contrib-list">
+          <li>Studied and analysed existing room booking system architecture</li>
+          <li>Implemented admin features for managing bookings</li>
+          <li>Improved CSS design and overall visual presentation</li>
+          <li>Planning database structure for full booking workflow</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-<hr class="divider" style="max-width:1060px;margin:0 auto;"/>
-
-<!-- TIMELINE -->
-<section id="timeline">
-  <p class="section-label">Weekly Logbook</p>
-  <h2 class="section-title">Internship Timeline</h2>
-  <p class="section-sub">A week-by-week record of tasks, learnings and reflections</p>
-  <div class="timeline" style="margin-top:3rem;">
-
-    <!-- WEEK 1 -->
-    <div class="tl-week">
-      <div class="tl-dot"></div>
-      <p class="tl-week-label">Week 1 · 6 April – 10 April 2026</p>
-      <h3 class="tl-week-title">Onboarding & First Features</h3>
-      <div class="tl-days">
-        <div class="tl-day"><span class="tl-day-date">Mon 6 Apr</span><span class="tl-day-text">HR briefing by Farah at 8:30am · Assisted A-Level students with mobile app development (1:35pm)</span></div>
-        <div class="tl-day"><span class="tl-day-date">Tue 7 Apr</span><span class="tl-day-text">Reviewed and studied the assigned project: ANPR · Understanding overall flow and project objectives</span></div>
-        <div class="tl-day"><span class="tl-day-date">Wed 8 Apr</span><span class="tl-day-text">Implemented login feature using school email · Meeting with A-Level students to review project progress</span></div>
-        <div class="tl-day"><span class="tl-day-date">Thu 9 Apr</span><span class="tl-day-text">Successfully implemented logout button functionality · Improved user interface of the profile page</span></div>
-        <div class="tl-day"><span class="tl-day-date">Fri 10 Apr</span><span class="tl-day-text">Discussed improvements for the notification feature in the system</span></div>
-      </div>
-      <div class="tl-reflection">
-        <strong>Problem:</strong> Difficulty understanding existing project structure as system was already developed.<br/>
-        <strong>Learned:</strong> Gained better understanding of React Native mobile app development · Improved debugging skills.<br/>
-      </div>
+<!-- ─── TIMELINE ─── -->
+<hr class="rule"/>
+<section class="section" id="timeline">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <div>
+      <p class="section-label">Weekly Logbook</p>
+      <h2 class="section-title">Internship<br/><em>Timeline</em></h2>
+      <p class="section-sub">A week-by-week record of tasks, challenges, and learnings.</p>
     </div>
-
-    <!-- WEEK 2 -->
-    <div class="tl-week" style="animation-delay:0.1s;">
-      <div class="tl-dot"></div>
-      <p class="tl-week-label">Week 2 · 13 April – 17 April 2026</p>
-      <h3 class="tl-week-title">OTP & Backend Integration</h3>
-      <div class="tl-days">
-        <div class="tl-day"><span class="tl-day-date">Mon 13 Apr</span><span class="tl-day-text">Proposed OTP feature for login security · Assigned to explore APK generation for deployment</span></div>
-        <div class="tl-day"><span class="tl-day-date">Tue 14 Apr</span><span class="tl-day-text">Researched OTP implementation using school email server (not personal Gmail)</span></div>
-        <div class="tl-day"><span class="tl-day-date">Wed 15 Apr</span><span class="tl-day-text">Studied how mobile app connects to socket server for real-time communication · Queried full user list from DB</span></div>
-        <div class="tl-day"><span class="tl-day-date">Thu 16 Apr</span><span class="tl-day-text">Reviewed spreadsheet containing student data (names, car plates) — awaiting updated version</span></div>
-        <div class="tl-day"><span class="tl-day-date">Fri 17 Apr</span><span class="tl-day-text">Troubleshot email server configuration · Tried SMTP + SendGrid with existing API key · Explored new ANPR school email account</span></div>
-      </div>
-      <div class="tl-reflection">
-        <strong>Problem:</strong> Difficulty setting up OTP · SMTP config issues · Email server restrictions · SendGrid sender domain not verified (landing in junk).<br/>
-        <strong>Learned:</strong> How OTP authentication works via SMTP and third-party services · Improved API troubleshooting skills.<br/>
-        
-      </div>
+  </div>
+  <div class="timeline-outer">
+    <div class="timeline-nav">
+      <a class="tl-nav-item active" href="#week1">Week 01</a>
+      <a class="tl-nav-item" href="#week2">Week 02</a>
+      <a class="tl-nav-item" href="#week3">Week 03</a>
+      <a class="tl-nav-item" href="#week4">Week 04</a>
+      <a class="tl-nav-item" style="opacity:.35;pointer-events:none;">Week 05+</a>
     </div>
+    <div class="timeline-weeks">
 
-    <!-- WEEK 3 placeholder -->
-    <div class="tl-week" style="animation-delay:0.2s;opacity:0.55;">
-      <div class="tl-dot" style="background:var(--muted);"></div>
-      <p class="tl-week-label">Week 3 · 20 April – 24 April 2026</p>
-      <h3 class="tl-week-title">In Progress…</h3>
-      <div class="tl-days">
-        <div class="tl-day"><span class="tl-day-date">This week</span><span class="tl-day-text">Continuing ANPR data flow testing · Awaiting updated student database · SendGrid domain verification follow-up</span></div>
+      <div class="week-card open" id="week1">
+        <div class="week-header" onclick="toggleWeek(this)">
+          <span class="week-num">01</span>
+          <div><p class="week-label">6 April – 10 April 2026</p><p class="week-title">Onboarding &amp; First Features</p></div>
+          <span class="week-toggle">+</span>
+        </div>
+        <div class="week-body">
+          <div class="day-rows">
+            <div class="day-row"><span class="day-date">Mon 6 Apr</span><span class="day-text">HR briefing by Farah at 8:30am · Assisted A-Level students with mobile app development (1:35pm)</span></div>
+            <div class="day-row"><span class="day-date">Tue 7 Apr</span><span class="day-text">Reviewed and studied the assigned project: ANPR · Understanding overall flow and project objectives</span></div>
+            <div class="day-row"><span class="day-date">Wed 8 Apr</span><span class="day-text">Implemented login feature using school email · Meeting with A-Level students to review project progress</span></div>
+            <div class="day-row"><span class="day-date">Thu 9 Apr</span><span class="day-text">Successfully implemented logout button functionality · Improved user interface of the profile page</span></div>
+            <div class="day-row"><span class="day-date">Fri 10 Apr</span><span class="day-text">Discussed improvements for the notification feature in the system</span></div>
+          </div>
+          <div class="week-reflection">
+            <h5>Reflection</h5>
+            <div class="refl-row"><span class="refl-key">Problem</span><span class="refl-val">Difficulty understanding existing project structure as the system was already developed when I joined.</span></div>
+            <div class="refl-row"><span class="refl-key">Learned</span><span class="refl-val">Better understanding of React Native mobile app development · Improved debugging skills.</span></div>
+            <div class="refl-row"><span class="refl-key">Next</span><span class="refl-val">Create room booking system · Assist in returning borrowed iPads and school devices.</span></div>
+          </div>
+        </div>
       </div>
-    </div>
 
+      <div class="week-card" id="week2">
+        <div class="week-header" onclick="toggleWeek(this)">
+          <span class="week-num">02</span>
+          <div><p class="week-label">13 April – 17 April 2026</p><p class="week-title">OTP Research &amp; Backend Integration</p></div>
+          <span class="week-toggle">+</span>
+        </div>
+        <div class="week-body">
+          <div class="day-rows">
+            <div class="day-row"><span class="day-date">Mon 13 Apr</span><span class="day-text">Proposed OTP feature for login security · Assigned to explore APK generation for deployment</span></div>
+            <div class="day-row"><span class="day-date">Tue 14 Apr</span><span class="day-text">Researched OTP implementation using school email server — not personal Gmail</span></div>
+            <div class="day-row"><span class="day-date">Wed 15 Apr</span><span class="day-text">Studied how mobile app connects to socket server for real-time communication · Queried full user list from DB</span></div>
+            <div class="day-row"><span class="day-date">Thu 16 Apr</span><span class="day-text">Reviewed spreadsheet containing student data (names, car plates) — awaiting updated version</span></div>
+            <div class="day-row"><span class="day-date">Fri 17 Apr</span><span class="day-text">Troubleshot email server config · Tried SMTP + SendGrid with existing API key · Explored new ANPR school email account</span></div>
+          </div>
+          <div class="week-reflection">
+            <h5>Reflection</h5>
+            <div class="refl-row"><span class="refl-key">Problem</span><span class="refl-val">SMTP config issues · Email server restrictions · SendGrid sender domain not verified — OTPs landing in junk mail.</span></div>
+            <div class="refl-row"><span class="refl-key">Learned</span><span class="refl-val">How OTP authentication works via SMTP and third-party services · Improved API troubleshooting skills.</span></div>
+            <div class="refl-row"><span class="refl-key">Next</span><span class="refl-val">Continue testing real-time ANPR data flow · Connect updated student database once received.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="week-card" id="week3">
+        <div class="week-header" onclick="toggleWeek(this)">
+          <span class="week-num">03</span>
+          <div><p class="week-label">20 April – 24 April 2026</p><p class="week-title">SendGrid Fixed · Parent Login · Room Booking</p></div>
+          <span class="week-toggle">+</span>
+        </div>
+        <div class="week-body">
+          <div class="day-rows">
+            <div class="day-row"><span class="day-date">Mon 20 Apr</span><span class="day-text">Researched SendGrid for OTP emails · Trial and error with API keys · Identified sender verification required before delivery</span></div>
+            <div class="day-row"><span class="day-date">Tue 21 Apr</span><span class="day-text">✅ SendGrid configured — OTP now in inbox, not spam · Updated vehicle plate data in MySQL for ANPR</span></div>
+            <div class="day-row"><span class="day-date">Wed 22 Apr</span><span class="day-text">Implemented parent login feature to allow parents to notify their children upon arrival</span></div>
+            <div class="day-row"><span class="day-date">Thu 23 Apr</span><span class="day-text">Redesigned the parent UI · Started new task: room booking system</span></div>
+            <div class="day-row"><span class="day-date">Fri 24 Apr</span><span class="day-text">Continued studying existing room booking system · Troubleshot PCs and replaced faulty power sockets for keyboards and mouse</span></div>
+          </div>
+          <div class="week-reflection">
+            <h5>Reflection</h5>
+            <div class="refl-row"><span class="refl-key">Highlight</span><span class="refl-val">Mix of software development and IT support this week — diverse and fulfilling work.</span></div>
+            <div class="refl-row"><span class="refl-key">Learned</span><span class="refl-val">How to integrate third-party services (SendGrid) for OTP — including sender verification to avoid spam filters.</span></div>
+            <div class="refl-row"><span class="refl-key">Next</span><span class="refl-val">Continue room booking system development, including database structure and user interface.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="week-card" id="week4">
+        <div class="week-header" onclick="toggleWeek(this)">
+          <span class="week-num">04</span>
+          <div><p class="week-label">27 April – 30 April 2026</p><p class="week-title">Networking, Server Migration &amp; IPA Research</p></div>
+          <span class="week-toggle">+</span>
+        </div>
+        <div class="week-body">
+          <div class="day-rows">
+            <div class="day-row"><span class="day-date">Mon 27 Apr</span><span class="day-text">Arranged projector cables for teachers · Updated server IP address for ANPR on school network · Researched IPA format for iOS deployment</span></div>
+            <div class="day-row"><span class="day-date">Tue 28 Apr</span><span class="day-text">Continued room booking system — implemented admin features · Improved CSS design</span></div>
+            <div class="day-row"><span class="day-date">Wed 29 Apr</span><span class="day-text">Explored Apple Developer account for IPA deployment · Learned DNS configuration troubleshooting · Debugged ANPR connection and OTP failures</span></div>
+            <div class="day-row"><span class="day-date">Thu 30 Apr</span><span class="day-text">Continued debugging app-to-server connection · Root cause found: server tied to personal laptop · Migrated to school domain on school server</span></div>
+          </div>
+          <div class="week-reflection">
+            <h5>Reflection</h5>
+            <div class="refl-row"><span class="refl-key">Highlight</span><span class="refl-val">Networking-heavy week — real exposure to how production systems are deployed within a school network environment.</span></div>
+            <div class="refl-row"><span class="refl-key">Learned</span><span class="refl-val">Server configuration, DNS settings, and how network routing affects app connectivity. Better understanding of iOS deployment pipeline.</span></div>
+            <div class="refl-row"><span class="refl-key">Next</span><span class="refl-val">Further test ANPR system on school server domain · Assist with IT support tasks.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="week-card future">
+        <div class="week-header">
+          <span class="week-num" style="color:var(--border);">05</span>
+          <div><p class="week-label">5 May 2026 onwards</p><p class="week-title" style="color:var(--muted);">Coming Soon…</p></div>
+          <span class="week-toggle" style="color:var(--border);">—</span>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
-<hr class="divider" style="max-width:1060px;margin:0 auto;"/>
-
-
-
-
-<!-- SKILLS -->
-<section id="skills">
-  <p class="section-label">What I'm Learning</p>
-  <h2 class="section-title">Key Learnings</h2>
-  <div class="skills-grid">
-    <div class="skill-card"><div class="skill-icon">📱</div><h4 class="skill-title">React Native & Expo</h4><p class="skill-desc">Building cross-platform mobile apps, managing navigation, and deploying APKs via EAS Build.</p></div>
-    <div class="skill-card"><div class="skill-icon">🔑</div><h4 class="skill-title">OTP Authentication</h4><p class="skill-desc">Implementing secure login with SMTP and SendGrid, handling email server configuration and domain verification.</p></div>
-    <div class="skill-card"><div class="skill-icon">🔌</div><h4 class="skill-title">Real-time with Socket.IO</h4><p class="skill-desc">Understanding how camera data flows through a socket server to the mobile app in real time.</p></div>
-    <div class="skill-card"><div class="skill-icon">🗄️</div><h4 class="skill-title">MySQL & Backend</h4><p class="skill-desc">Querying a live school database, understanding table relationships for users, plates, and students.</p></div>
-    <div class="skill-card"><div class="skill-icon">🚀</div><h4 class="skill-title">Push Notifications</h4><p class="skill-desc">Leveraging expo-notifications and Expo push tokens for targeted per-student notifications.</p></div>
-    <div class="skill-card"><div class="skill-icon">🤝</div><h4 class="skill-title">Stakeholder Collaboration</h4><p class="skill-desc">Working directly with supervisors, A-Level students, and school staff to gather requirements and iterate.</p></div>
+<!-- ─── SKILLS ─── -->
+<hr class="rule"/>
+<section class="section" id="skills">
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <div>
+      <p class="section-label">Key Learnings</p>
+      <h2 class="section-title">Skills I'm<br/><em>Building</em></h2>
+    </div>
+  </div>
+  <div class="bento fade-up">
+    <div class="bento-cell wide">
+      <div class="bento-big-num">04</div>
+      <div class="bento-title">Weeks Complete</div>
+      <div class="bento-desc">33% through a 12-week internship delivering two real systems for HELP International School's EdTech department.</div>
+    </div>
+    <div class="bento-cell"><div class="bento-icon">📱</div><div class="bento-title">React Native &amp; Expo</div><div class="bento-desc">Cross-platform mobile apps, navigation, state management, APK builds via EAS.</div></div>
+    <div class="bento-cell"><div class="bento-icon">🔐</div><div class="bento-title">OTP Auth</div><div class="bento-desc">Full implementation: SMTP research → SendGrid → sender verification → inbox delivery.</div></div>
+    <div class="bento-cell"><div class="bento-icon">🌐</div><div class="bento-title">Server &amp; DNS</div><div class="bento-desc">Migrating backends, updating IPs, configuring DNS and troubleshooting production routing.</div></div>
+    <div class="bento-cell"><div class="bento-icon">🔌</div><div class="bento-title">Socket.IO</div><div class="bento-desc">Real-time ANPR camera events flowing to mobile app for live student notifications.</div></div>
+    <div class="bento-cell"><div class="bento-icon">🗄️</div><div class="bento-title">MySQL &amp; Backend</div><div class="bento-desc">Querying live school databases, understanding relational schemas for users and plates.</div></div>
+    <div class="bento-cell"><div class="bento-icon">🍎</div><div class="bento-title">iOS Deployment</div><div class="bento-desc">IPA format, Apple Developer accounts and the iOS distribution pipeline via Expo.</div></div>
+    <div class="bento-cell"><div class="bento-icon">🛠️</div><div class="bento-title">IT Support</div><div class="bento-desc">PC diagnostics, faulty peripherals, projector cables, and computer lab maintenance.</div></div>
   </div>
 </section>
 
-<hr class="divider" style="max-width:1060px;margin:0 auto;"/>
-
-<!-- REFLECTIONS -->
-<section id="reflections">
-  <p class="section-label">Personal Growth</p>
-  <h2 class="section-title">Reflections</h2>
-  <div class="reflection-grid">
-    <div class="reflection-card">
-      <div class="reflection-head">
-        <div class="reflection-icon">⚡</div>
-        <h4 class="reflection-title">Challenges Faced</h4>
-      </div>
-      <p class="reflection-body">Joining an already-developed codebase was initially difficult — understanding the existing structure, conventions and logic took focused effort in Week 1. In Week 2, SMTP and email server restrictions blocked OTP implementation, requiring exploration of multiple solutions including SendGrid domain authentication.</p>
+<!-- ─── REFLECTIONS ─── -->
+<hr class="rule"/>
+<section class="section" id="reflections">
+  <div class="section-header">
+    <span class="section-num">06</span>
+    <div>
+      <p class="section-label">Personal Growth</p>
+      <h2 class="section-title">Reflections &amp;<br/><em>Takeaways</em></h2>
     </div>
-    <div class="reflection-card">
-      <div class="reflection-head">
-        <div class="reflection-icon">💡</div>
-        <h4 class="reflection-title">Lessons Learned</h4>
-      </div>
-      <p class="reflection-body">Reading existing code before making changes saves significant debugging time. When one solution fails (personal SMTP), pivoting systematically to alternatives (SendGrid, school email server) is more productive than persisting with a blocked approach. Documentation and asking targeted questions to supervisors is key.</p>
+  </div>
+  <div class="reflections-grid fade-up">
+    <div class="refl-card">
+      <p class="refl-card-num">01 · Challenges</p>
+      <h3 class="refl-card-title">Obstacles I've<br/>Pushed Through</h3>
+      <p class="refl-card-body">Joining an already-developed codebase demanded real effort to understand existing structure and logic. SMTP restrictions blocked OTP for days, requiring systematic exploration of multiple approaches. In Week 4, the backend was silently tied to a personal laptop, causing mysterious failures that took careful debugging to trace and fix.</p>
     </div>
-    <div class="reflection-card">
-      <div class="reflection-head">
-        <div class="reflection-icon">🎯</div>
-        <h4 class="reflection-title">What I'm Proud Of</h4>
-      </div>
-      <p class="reflection-body">Independently proposing the OTP security feature (it wasn't originally planned), contributing real production features to the login system in my first week, and actively mentoring A-Level students on app development concepts.</p>
+    <div class="refl-card">
+      <p class="refl-card-num">02 · Lessons</p>
+      <h3 class="refl-card-title">What I've<br/>Learned to Do</h3>
+      <p class="refl-card-body">Read existing code before making changes — it saves significant debugging time. When one solution fails, pivot systematically: SMTP failed, so I tried SendGrid, then resolved sender verification step by step. Production systems depend on correct server and DNS config, not just correct code. Never assume where the backend is running.</p>
     </div>
-    <div class="reflection-card">
-      <div class="reflection-head">
-        <div class="reflection-icon">🗺️</div>
-        <h4 class="reflection-title">What's Ahead</h4>
-      </div>
-      <p class="reflection-body">Finishing OTP integration once SendGrid domain is verified · Connecting the updated student database once received from supervisors · Testing the full ANPR camera → plate detection → push notification pipeline end-to-end.</p>
+    <div class="refl-card">
+      <p class="refl-card-num">03 · Pride</p>
+      <h3 class="refl-card-title">What I'm<br/>Proud Of</h3>
+      <p class="refl-card-body">Independently proposing and fully implementing the OTP security feature — it wasn't on the plan — and seeing it through from research to inbox delivery. Contributing production features in my very first week. Building the parent login flow and actively helping A-Level student developers understand the codebase.</p>
+    </div>
+    <div class="refl-card">
+      <p class="refl-card-num">04 · Ahead</p>
+      <h3 class="refl-card-title">What's<br/>Coming Next</h3>
+      <p class="refl-card-body">Testing the full ANPR pipeline end-to-end on the school server domain. Completing the room booking system with full database structure and polished UI. Exploring IPA deployment for iOS devices. Continuing IT support tasks alongside software development as the internship approaches its halfway mark.</p>
     </div>
   </div>
 </section>
 
+<hr class="rule"/>
 <footer>
-  <p style="margin-bottom:0.5rem;font-family:'Syne',sans-serif;font-weight:700;color:var(--text);">Intan Nur Habriah Binti Azizan</p>
-  <p>Industrial Training · CPT6216 · Multimedia University · <a href="mailto:">FCI Cyberjaya</a></p>
-  <p style="margin-top:0.75rem;">HELP International School · 6 Apr – 5 Jul 2026</p>
-  <p style="margin-top:1rem;font-size:0.75rem;opacity:0.5;">Built as internship portfolio · Updated weekly</p>
+  <div class="footer-left">
+    <span class="footer-name">Intan Nur Habriah Binti Azizan</span>
+    <p>Industrial Training · CPT6216 · Multimedia University · FCI Cyberjaya</p>
+    <p>HELP International School · EdTech Dept · 6 Apr – 5 Jul 2026</p>
+    <p style="margin-top:.6rem;font-family:var(--mono);font-size:.58rem;letter-spacing:.08em;color:var(--border-dark);">Supervisors: Lau Sie Kee (Company) · Lim Siew Ling (Faculty)</p>
+  </div>
+  <div class="footer-right">
+    <p>Built as internship portfolio</p>
+    <p>Updated weekly</p>
+    <p style="opacity:.4;margin-top:.25rem;">Week 04 of 12 · 2026</p>
+  </div>
 </footer>
 
 <script>
-  // Theme toggle
-  const root = document.documentElement;
-  const btn = document.getElementById('themeBtn');
-  let isLight = false;
+/* CURSOR */
+const cur=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+(function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing);})();
+document.querySelectorAll('a,button,.week-header,.bento-cell,.activity-cell,.refl-card,.stack-pill').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.width='16px';cur.style.height='16px';ring.style.width='52px';ring.style.height='52px';});
+  el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';ring.style.width='36px';ring.style.height='36px';});
+});
 
-  // Default: dark mode (night)
-  btn.textContent = '☀️';
+/* HERO IMAGE FALLBACK */
+const heroImg=document.getElementById('heroImg');
+heroImg.onerror=function(){
+  const hr=document.getElementById('heroRight');
+  this.style.display='none';
+  const ph=document.createElement('div');
+  ph.className='hero-placeholder';
+  ph.innerHTML='<p>// Replace work1.jpg with your photo<br/>and push to GitHub</p>';
+  hr.insertBefore(ph,hr.firstChild);
+};
 
-  function toggleTheme() {
-    isLight = !isLight;
-    if (isLight) {
-      root.classList.add('light');
-      btn.textContent = '🌙';
-    } else {
-      root.classList.remove('light');
-      btn.textContent = '☀️';
+/* WEEK ACCORDION */
+function toggleWeek(h){const c=h.closest('.week-card');if(!c.classList.contains('future'))c.classList.toggle('open');}
+
+/* SCROLL ANIMATIONS */
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.12});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+/* PROGRESS BAR */
+const pb=document.getElementById('progressBar');
+pb.style.width='0';
+const pbObs=new IntersectionObserver(entries=>{if(entries[0].isIntersecting){pb.style.width='33.3%';pbObs.disconnect();}},{threshold:.5});
+pbObs.observe(pb);
+
+/* TIMELINE NAV */
+const weeks=document.querySelectorAll('.week-card[id]');
+const navItems=document.querySelectorAll('.tl-nav-item[href]');
+const tlObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      navItems.forEach(n=>n.classList.remove('active'));
+      const t=document.querySelector('.tl-nav-item[href="#'+e.target.id+'"]');
+      if(t)t.classList.add('active');
     }
-    localStorage.setItem('theme', isLight ? 'light' : 'dark');
-  }
-
-  // Restore saved preference
-  if (localStorage.getItem('theme') === 'light') {
-    isLight = true;
-    root.classList.add('light');
-    btn.textContent = '🌙';
-  }
-
-  // Animate bars on scroll
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.querySelectorAll('.bar-fill').forEach(b => {
-          const w = b.style.width; b.style.width = '0';
-          setTimeout(() => { b.style.width = w; }, 100);
-        });
-      }
-    });
-  }, { threshold: 0.3 });
-  document.querySelectorAll('.survey-card').forEach(c => observer.observe(c));
+  });
+},{threshold:.4});
+weeks.forEach(w=>tlObs.observe(w));
 </script>
 </body>
 </html>
