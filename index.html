@@ -17,6 +17,79 @@ html{scroll-behavior:smooth}
 }
 body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.6;overflow-x:hidden;}
 
+/* BG TEXTURE — subtle dot grid */
+body::before{
+  content:'';
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:radial-gradient(circle,rgba(180,170,155,.28) 1px,transparent 1px);
+  background-size:28px 28px;
+}
+/* Soft warm vignette over texture */
+body::after{
+  content:'';
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%,rgba(250,249,246,.0) 0%,transparent 70%),
+    radial-gradient(ellipse 60% 40% at 0% 100%,rgba(200,64,26,.04) 0%,transparent 70%),
+    radial-gradient(ellipse 50% 40% at 100% 0%,rgba(200,64,26,.03) 0%,transparent 70%);
+}
+/* Everything above the texture */
+nav,section,footer,.hero,.marquee-wrap,hr.rule{position:relative;z-index:1;}
+
+/* PROFILE AVATAR */
+.profile-avatar{
+  width:72px;height:72px;border-radius:50%;
+  border:2px solid var(--border-dark);
+  overflow:hidden;flex-shrink:0;
+  background:var(--paper3);
+  display:flex;align-items:center;justify-content:center;
+}
+.profile-avatar img{width:100%;height:100%;object-fit:cover;display:block;}
+.profile-avatar-ph{
+  font-family:var(--mono);font-size:.55rem;letter-spacing:.08em;
+  color:var(--muted);text-transform:uppercase;text-align:center;padding:.5rem;
+  line-height:1.4;
+}
+.name-row{display:flex;align-items:center;gap:1.5rem;margin-bottom:.25rem;}
+
+/* HELP LOGO CIRCLE (hero right) */
+.help-logo-panel{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:2rem;height:100%;padding:3rem;
+}
+.help-logo-circle{
+  width:140px;height:140px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.15);
+  background:rgba(255,255,255,.06);
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.help-logo-circle img{width:80px;height:80px;object-fit:contain;filter:brightness(0) invert(1);opacity:.85;}
+.help-logo-circle-ph{
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;
+  color:rgba(255,255,255,.3);text-transform:uppercase;text-align:center;padding:.5rem;
+}
+.help-panel-text{text-align:center;}
+.help-panel-text h2{
+  font-family:var(--serif);font-size:1.6rem;font-weight:400;
+  color:rgba(255,255,255,.85);line-height:1.2;margin-bottom:.5rem;
+}
+.help-panel-text p{
+  font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;
+  text-transform:uppercase;color:rgba(255,255,255,.35);
+}
+.help-panel-divider{width:40px;height:1px;background:rgba(200,64,26,.6);}
+.help-panel-meta{
+  display:flex;flex-direction:column;gap:.6rem;align-items:center;width:100%;
+  border-top:1px solid rgba(255,255,255,.08);padding-top:2rem;
+}
+.help-meta-item{
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;
+  text-transform:uppercase;color:rgba(255,255,255,.3);
+  display:flex;gap:.6rem;align-items:center;
+}
+.help-meta-dot{width:5px;height:5px;border-radius:50%;background:var(--accent-l);flex-shrink:0;}
+
 /* CURSOR */
 .cursor{position:fixed;width:10px;height:10px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:multiply;}
 .cursor-ring{position:fixed;width:36px;height:36px;border:1px solid var(--accent);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:.4;transition:width .3s,height .3s;}
@@ -34,11 +107,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:80px;}
 .hero-left{padding:6rem 4rem 4rem 5rem;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--border);}
 .hero-right{position:relative;overflow:hidden;background:var(--ink2);}
-.hero-right img{width:100%;height:100%;object-fit:cover;opacity:.65;display:block;}
-.hero-right-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(200,64,26,.45) 0%,transparent 60%);}
-.hero-right-caption{position:absolute;bottom:2.5rem;left:2.5rem;right:2.5rem;font-family:var(--mono);font-size:.62rem;color:rgba(255,255,255,.5);letter-spacing:.1em;text-transform:uppercase;border-top:1px solid rgba(255,255,255,.12);padding-top:1rem;display:flex;justify-content:space-between;}
-.hero-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;}
-.hero-placeholder p{font-family:var(--mono);font-size:.62rem;letter-spacing:.15em;color:rgba(255,255,255,.18);text-transform:uppercase;text-align:center;padding:0 2rem;}
+.hero-right-caption{position:absolute;bottom:2rem;left:2.5rem;right:2.5rem;font-family:var(--mono);font-size:.6rem;color:rgba(255,255,255,.3);letter-spacing:.1em;text-transform:uppercase;border-top:1px solid rgba(255,255,255,.08);padding-top:.9rem;display:flex;justify-content:space-between;}
 .hero-eyebrow{font-family:var(--mono);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem;}
 .hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--accent);}
 .hero h1{font-family:var(--serif);font-size:clamp(3rem,5vw,5rem);font-weight:400;line-height:1.05;margin-bottom:.25rem;}
@@ -230,7 +299,12 @@ footer p{font-size:.76rem;color:var(--muted);}
 <section class="hero">
   <div class="hero-left">
     <p class="hero-eyebrow">Internship Portfolio · 2026</p>
-    <h1>Intan Nur<br/><em>Habriah</em><br/>Binti Azizan</h1>
+    <div class="name-row">
+      <div class="profile-avatar" id="avatarWrap">
+        <img src="photo.jpg" alt="Intan Nur Habriah" id="avatarImg"/>
+      </div>
+      <h1>Intan Nur<br/><em>Habriah</em><br/>Binti Azizan</h1>
+    </div>
     <p class="hero-subtitle">Software Engineering &amp; IT Support Intern</p>
     <dl class="hero-details">
       <div class="hero-detail"><dt>Student ID</dt><dd>1231301467</dd></div>
@@ -255,8 +329,23 @@ footer p{font-size:.76rem;color:var(--muted);}
     </div>
   </div>
   <div class="hero-right" id="heroRight">
-    <img src="work1.jpg" alt="Intan at HELP International School" id="heroImg"/>
-    <div class="hero-right-overlay"></div>
+    <div class="help-logo-panel">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:1.5rem;">
+        <div class="help-logo-circle" id="helpLogoCircle">
+          <img src="HISLogoBadge.png" alt="HELP International School" id="helpLogo"/>
+        </div>
+        <div class="help-panel-divider"></div>
+        <div class="help-panel-text">
+          <h2>HELP International<br/>School</h2>
+          <p>EdTech Department · Kuala Lumpur</p>
+        </div>
+      </div>
+      <div class="help-panel-meta">
+        <div class="help-meta-item"><span class="help-meta-dot"></span>6 April – 5 July 2026</div>
+        <div class="help-meta-item"><span class="help-meta-dot"></span>Software Engineering Intern</div>
+        <div class="help-meta-item"><span class="help-meta-dot"></span>12 Weeks · Week 04 Now</div>
+      </div>
+    </div>
     <div class="hero-right-caption">
       <span>HELP International School · KL</span>
       <span>EdTech Department · 2026</span>
@@ -644,15 +733,20 @@ document.querySelectorAll('a,button,.week-header,.bento-cell,.activity-cell,.ref
   el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';ring.style.width='36px';ring.style.height='36px';});
 });
 
-/* HERO IMAGE FALLBACK */
-const heroImg=document.getElementById('heroImg');
-heroImg.onerror=function(){
-  const hr=document.getElementById('heroRight');
+/* AVATAR FALLBACK */
+const avatarImg=document.getElementById('avatarImg');
+avatarImg.onerror=function(){
+  const wrap=document.getElementById('avatarWrap');
   this.style.display='none';
-  const ph=document.createElement('div');
-  ph.className='hero-placeholder';
-  ph.innerHTML='<p>// Replace work1.jpg with your photo<br/>and push to GitHub</p>';
-  hr.insertBefore(ph,hr.firstChild);
+  wrap.innerHTML='<div class="profile-avatar-ph">Add<br/>photo.jpg</div>';
+};
+
+/* HELP LOGO FALLBACK */
+const helpLogo=document.getElementById('helpLogo');
+helpLogo.onerror=function(){
+  const circle=document.getElementById('helpLogoCircle');
+  this.style.display='none';
+  circle.innerHTML='<div class="help-logo-circle-ph">HELP<br/>International<br/>School</div>';
 };
 
 /* WEEK ACCORDION */
