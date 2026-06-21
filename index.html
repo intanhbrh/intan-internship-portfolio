@@ -16,85 +16,36 @@ html{scroll-behavior:smooth}
   --mono:'Space Mono',monospace;--serif:'Instrument Serif',serif;--sans:'Space Grotesk',sans-serif;
 }
 body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.6;overflow-x:hidden;}
-
-/* BG TEXTURE — subtle dot grid */
 body::before{
-  content:'';
-  position:fixed;inset:0;z-index:0;pointer-events:none;
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
   background-image:radial-gradient(circle,rgba(180,170,155,.28) 1px,transparent 1px);
   background-size:28px 28px;
 }
-/* Soft warm vignette over texture */
 body::after{
-  content:'';
-  position:fixed;inset:0;z-index:0;pointer-events:none;
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
   background:
     radial-gradient(ellipse 80% 60% at 50% 0%,rgba(250,249,246,.0) 0%,transparent 70%),
     radial-gradient(ellipse 60% 40% at 0% 100%,rgba(200,64,26,.04) 0%,transparent 70%),
     radial-gradient(ellipse 50% 40% at 100% 0%,rgba(200,64,26,.03) 0%,transparent 70%);
 }
-/* Everything above the texture */
 nav,section,footer,.hero,.marquee-wrap,hr.rule{position:relative;z-index:1;}
-
-/* PROFILE AVATAR */
-.profile-avatar{
-  width:72px;height:72px;border-radius:50%;
-  border:2px solid var(--border-dark);
-  overflow:hidden;flex-shrink:0;
-  background:var(--paper3);
-  display:flex;align-items:center;justify-content:center;
-}
+.profile-avatar{width:72px;height:72px;border-radius:50%;border:2px solid var(--border-dark);overflow:hidden;flex-shrink:0;background:var(--paper3);display:flex;align-items:center;justify-content:center;}
 .profile-avatar img{width:100%;height:100%;object-fit:cover;display:block;}
-.profile-avatar-ph{
-  font-family:var(--mono);font-size:.55rem;letter-spacing:.08em;
-  color:var(--muted);text-transform:uppercase;text-align:center;padding:.5rem;
-  line-height:1.4;
-}
+.profile-avatar-ph{font-family:var(--mono);font-size:.55rem;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;text-align:center;padding:.5rem;line-height:1.4;}
 .name-row{display:flex;align-items:center;gap:1.5rem;margin-bottom:.25rem;}
-
-/* HELP LOGO CIRCLE (hero right) */
-.help-logo-panel{
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:2rem;height:100%;padding:3rem;
-}
-.help-logo-circle{
-  width:140px;height:140px;border-radius:50%;
-  border:1px solid rgba(255,255,255,.15);
-  background:rgba(255,255,255,.06);
-  display:flex;align-items:center;justify-content:center;
-  overflow:hidden;
-}
+.help-logo-panel{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;height:100%;padding:3rem;}
+.help-logo-circle{width:140px;height:140px;border-radius:50%;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;overflow:hidden;}
 .help-logo-circle img{width:80px;height:80px;object-fit:contain;filter:brightness(0) invert(1);opacity:.85;}
-.help-logo-circle-ph{
-  font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;
-  color:rgba(255,255,255,.3);text-transform:uppercase;text-align:center;padding:.5rem;
-}
+.help-logo-circle-ph{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;color:rgba(255,255,255,.3);text-transform:uppercase;text-align:center;padding:.5rem;}
 .help-panel-text{text-align:center;}
-.help-panel-text h2{
-  font-family:var(--serif);font-size:1.6rem;font-weight:400;
-  color:rgba(255,255,255,.85);line-height:1.2;margin-bottom:.5rem;
-}
-.help-panel-text p{
-  font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;
-  text-transform:uppercase;color:rgba(255,255,255,.35);
-}
+.help-panel-text h2{font-family:var(--serif);font-size:1.6rem;font-weight:400;color:rgba(255,255,255,.85);line-height:1.2;margin-bottom:.5rem;}
+.help-panel-text p{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);}
 .help-panel-divider{width:40px;height:1px;background:rgba(200,64,26,.6);}
-.help-panel-meta{
-  display:flex;flex-direction:column;gap:.6rem;align-items:center;width:100%;
-  border-top:1px solid rgba(255,255,255,.08);padding-top:2rem;
-}
-.help-meta-item{
-  font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;
-  text-transform:uppercase;color:rgba(255,255,255,.3);
-  display:flex;gap:.6rem;align-items:center;
-}
+.help-panel-meta{display:flex;flex-direction:column;gap:.6rem;align-items:center;width:100%;border-top:1px solid rgba(255,255,255,.08);padding-top:2rem;}
+.help-meta-item{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);display:flex;gap:.6rem;align-items:center;}
 .help-meta-dot{width:5px;height:5px;border-radius:50%;background:var(--accent-l);flex-shrink:0;}
-
-/* CURSOR */
 .cursor{position:fixed;width:10px;height:10px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:multiply;}
 .cursor-ring{position:fixed;width:36px;height:36px;border:1px solid var(--accent);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:.4;transition:width .3s,height .3s;}
-
-/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 3rem;background:rgba(250,249,246,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);}
 .nav-logo{font-family:var(--mono);font-size:.85rem;font-weight:700;color:var(--ink);text-decoration:none;letter-spacing:.05em;}
 .nav-logo span{color:var(--accent);}
@@ -102,8 +53,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .nav-links a{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;font-weight:500;transition:color .2s;}
 .nav-links a:hover{color:var(--accent);}
 .nav-week{font-family:var(--mono);font-size:.68rem;background:var(--ink);color:var(--paper);padding:.3rem .8rem;letter-spacing:.06em;}
-
-/* HERO */
 .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:80px;}
 .hero-left{padding:6rem 4rem 4rem 5rem;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--border);}
 .hero-right{position:relative;overflow:hidden;background:var(--ink2);}
@@ -125,15 +74,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .stack-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.25rem;}
 .stack-pill{font-family:var(--mono);font-size:.62rem;letter-spacing:.07em;border:1px solid var(--border-dark);padding:.28rem .7rem;color:var(--muted);transition:all .2s;cursor:default;}
 .stack-pill:hover{border-color:var(--accent);color:var(--accent);}
-
-/* MARQUEE */
 .marquee-wrap{overflow:hidden;padding:.7rem 0;background:var(--ink);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
 .marquee-track{display:flex;animation:marquee 30s linear infinite;white-space:nowrap;}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .marquee-item{font-family:var(--mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;padding:0 2.5rem;display:flex;align-items:center;gap:1.5rem;color:rgba(250,249,246,.5);}
 .marquee-item b{color:var(--accent-l);}
-
-/* SECTIONS */
 .section{padding:6rem 5rem;max-width:1280px;margin:0 auto;}
 .section-header{display:flex;align-items:flex-start;gap:2rem;margin-bottom:4rem;}
 .section-num{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;color:var(--muted);padding-top:.5rem;flex-shrink:0;}
@@ -142,8 +87,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .section-title em{color:var(--accent);font-style:italic;}
 .section-sub{font-size:.88rem;color:var(--muted);margin-top:.6rem;max-width:480px;}
 hr.rule{border:none;border-top:1px solid var(--border);max-width:1280px;margin:0 auto;}
-
-/* ABOUT */
 .about-layout{display:grid;grid-template-columns:3fr 2fr;gap:5rem;}
 .about-text p{font-size:.95rem;color:var(--muted);line-height:1.9;margin-bottom:1.2rem;}
 .about-text p strong{color:var(--ink);font-weight:600;}
@@ -156,8 +99,6 @@ hr.rule{border:none;border-top:1px solid var(--border);max-width:1280px;margin:0
 .progress-bar-outer{background:var(--paper3);border:1px solid var(--border);height:5px;margin-top:2rem;}
 .progress-bar-inner{height:100%;background:var(--accent);width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1);}
 .progress-labels{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.58rem;color:var(--muted);letter-spacing:.07em;margin-top:.5rem;}
-
-/* ACTIVITIES */
 .activities-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border);}
 .activity-cell{padding:2.25rem 1.75rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border);transition:background .2s;}
 .activity-cell:hover{background:var(--paper2);}
@@ -166,8 +107,6 @@ hr.rule{border:none;border-top:1px solid var(--border);max-width:1280px;margin:0
 .activity-icon{font-size:1.2rem;margin-bottom:1rem;}
 .activity-title{font-size:.88rem;font-weight:600;margin-bottom:.4rem;}
 .activity-desc{font-size:.76rem;color:var(--muted);line-height:1.7;}
-
-/* PROJECTS */
 .project-block{border-top:1px solid var(--border);padding:4rem 0;display:grid;grid-template-columns:1fr 1.35fr;gap:5rem;align-items:start;}
 .project-block:last-child{border-bottom:1px solid var(--border);}
 .project-meta{position:sticky;top:6rem;}
@@ -181,8 +120,6 @@ hr.rule{border:none;border-top:1px solid var(--border);max-width:1280px;margin:0
 .contrib-list{list-style:none;display:flex;flex-direction:column;gap:.4rem;}
 .contrib-list li{font-size:.8rem;color:var(--ink);padding:.45rem 0;border-bottom:1px solid var(--paper3);display:flex;gap:.7rem;align-items:flex-start;}
 .contrib-list li::before{content:'→';font-family:var(--mono);color:var(--accent);font-size:.68rem;flex-shrink:0;margin-top:.1rem;}
-
-/* PROJECT IMAGES */
 .project-images{display:flex;flex-direction:column;gap:1rem;}
 .proj-img-main{width:100%;aspect-ratio:16/10;background:var(--paper3);border:1px solid var(--border);overflow:hidden;display:flex;align-items:center;justify-content:center;}
 .proj-img-main img{width:100%;height:100%;object-fit:cover;display:block;}
@@ -193,8 +130,12 @@ hr.rule{border:none;border-top:1px solid var(--border);max-width:1280px;margin:0
 .img-ph-icon{font-size:1.4rem;opacity:.25;}
 .img-ph-label{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--border-dark);text-align:center;padding:0 .5rem;}
 .img-caption{font-family:var(--mono);font-size:.58rem;letter-spacing:.08em;color:var(--muted);margin-top:.4rem;text-align:center;}
-
-/* TIMELINE */
+.subsection{margin-top:1.75rem;border:1px dashed var(--border-dark);background:var(--paper2);padding:1.25rem 1.5rem;}
+.subsection-label{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem;display:flex;align-items:center;gap:.5rem;}
+.subsection-label::before{content:'⚡';font-size:.7rem;}
+.subsection p{font-size:.8rem;color:var(--muted);line-height:1.75;margin-bottom:.6rem;}
+.subsection p:last-child{margin-bottom:0;}
+.subsection p strong{color:var(--ink);font-weight:600;}
 .timeline-outer{display:grid;grid-template-columns:180px 1fr;gap:0;}
 .timeline-nav{border-right:1px solid var(--border);padding-right:2rem;position:sticky;top:5.5rem;height:fit-content;}
 .tl-nav-item{display:block;padding:.7rem 0;border-bottom:1px solid var(--paper3);font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;}
@@ -222,8 +163,6 @@ hr.rule{border:none;border-top:1px solid var(--border);max-width:1280px;margin:0
 .refl-key{font-family:var(--mono);font-size:.58rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;}
 .refl-val{font-size:.78rem;color:var(--ink2);}
 .week-card.future{opacity:.45;pointer-events:none;}
-
-/* SKILLS BENTO */
 .bento{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);}
 .bento-cell{background:var(--paper);padding:1.75rem 1.5rem;transition:background .2s;}
 .bento-cell:hover{background:var(--paper2);}
@@ -232,8 +171,6 @@ hr.rule{border:none;border-top:1px solid var(--border);max-width:1280px;margin:0
 .bento-title{font-size:.88rem;font-weight:600;margin-bottom:.35rem;}
 .bento-desc{font-size:.73rem;color:var(--muted);line-height:1.65;}
 .bento-icon{font-size:1.2rem;margin-bottom:.9rem;}
-
-/* REFLECTIONS */
 .reflections-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);}
 .refl-card{padding:2.5rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border);}
 .reflections-grid .refl-card:nth-child(2n){border-right:none;}
@@ -241,18 +178,12 @@ hr.rule{border:none;border-top:1px solid var(--border);max-width:1280px;margin:0
 .refl-card-num{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;color:var(--muted);margin-bottom:1rem;text-transform:uppercase;}
 .refl-card-title{font-family:var(--serif);font-size:1.3rem;font-weight:400;margin-bottom:.9rem;line-height:1.3;}
 .refl-card-body{font-size:.8rem;color:var(--muted);line-height:1.85;}
-
-/* FOOTER */
 footer{border-top:1px solid var(--border);padding:3rem 5rem;display:grid;grid-template-columns:1fr auto;align-items:end;gap:2rem;}
 .footer-name{font-family:var(--serif);font-size:1.4rem;display:block;margin-bottom:.25rem;}
 footer p{font-size:.76rem;color:var(--muted);}
 .footer-right{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;color:var(--muted);text-align:right;line-height:2.2;}
-
-/* ANIMATIONS */
 .fade-up{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease;}
 .fade-up.visible{opacity:1;transform:none;}
-
-/* RESPONSIVE */
 @media(max-width:960px){
   .hero{grid-template-columns:1fr;}
   .hero-right{height:45vw;}
@@ -295,7 +226,6 @@ footer p{font-size:.76rem;color:var(--muted);}
   <span class="nav-week">WK 10 / 12</span>
 </nav>
 
-<!-- ─── HERO ─── -->
 <section class="hero">
   <div class="hero-left">
     <p class="hero-eyebrow">Internship Portfolio · 2026</p>
@@ -354,7 +284,6 @@ footer p{font-size:.76rem;color:var(--muted);}
   </div>
 </section>
 
-<!-- MARQUEE -->
 <div class="marquee-wrap">
   <div class="marquee-track">
     <div class="marquee-item"><b>✦</b> ANPR Pickup System <b>✦</b> React Native <b>✦</b> SendGrid OTP <b>✦</b> Socket.IO <b>✦</b> Lost &amp; Found <b>✦</b> IIS Server <b>✦</b> Agentic AI <b>✦</b> OpenClaw <b>✦</b> NemoClaw <b>✦</b> GPU Optimisation <b>✦</b> APK Built <b>✦</b> Week 10 of 12</div>
@@ -362,7 +291,6 @@ footer p{font-size:.76rem;color:var(--muted);}
   </div>
 </div>
 
-<!-- ─── ABOUT ─── -->
 <hr class="rule"/>
 <section class="section" id="about">
   <div class="section-header">
@@ -396,7 +324,6 @@ footer p{font-size:.76rem;color:var(--muted);}
   </div>
 </section>
 
-<!-- ─── ACTIVITIES ─── -->
 <hr class="rule"/>
 <section class="section" id="activities">
   <div class="section-header">
@@ -412,12 +339,11 @@ footer p{font-size:.76rem;color:var(--muted);}
     <div class="activity-cell"><div class="activity-icon">🔐</div><div class="activity-title">OTP Authentication</div><div class="activity-desc">Researched, proposed, and fully implemented secure OTP login via SendGrid — including sender verification to ensure inbox delivery.</div></div>
     <div class="activity-cell"><div class="activity-icon">🔍</div><div class="activity-title">Lost &amp; Found System</div><div class="activity-desc">Designed and developed a full Lost &amp; Found system from SRS and UML diagrams through to Figma UI, PHP/MySQL development, UAT, and IIS deployment.</div></div>
     <div class="activity-cell"><div class="activity-icon">🌐</div><div class="activity-title">Server &amp; Networking</div><div class="activity-desc">Migrated backends to school server, configured DNS and firewalls, opened Port 3000, and deployed the Lost &amp; Found system to IIS for external access.</div></div>
-    <div class="activity-cell"><div class="activity-icon">🤖</div><div class="activity-title">Agentic AI Research</div><div class="activity-desc">Researching OpenClaw and NemoClaw agentic AI — investigating gateway issues, Ollama integration, GPU vs CPU performance, and local LLM deployment architecture.</div></div>
-    <div class="activity-cell"><div class="activity-icon">🖥️</div><div class="activity-title">IT Support</div><div class="activity-desc">Hands-on hardware — replaced faulty peripherals, prepared projector cables, set up PCs and iPads for school Open Day events, and maintained computer labs.</div></div>
+    <div class="activity-cell"><div class="activity-icon">🤖</div><div class="activity-title">Agentic AI Research</div><div class="activity-desc">Researching OpenClaw and NemoClaw agentic AI — now running on Linux Ubuntu with NVIDIA RTX 4090 for GPU-accelerated local LLM deployment.</div></div>
+    <div class="activity-cell"><div class="activity-icon">🖥️</div><div class="activity-title">IT Support</div><div class="activity-desc">Hands-on hardware — replaced faulty peripherals, prepared projector cables, set up PCs and iPads for school Open Day and GL assessment, maintained computer labs.</div></div>
   </div>
 </section>
 
-<!-- ─── PROJECTS ─── -->
 <hr class="rule"/>
 <section class="section" id="projects">
   <div class="section-header">
@@ -521,6 +447,13 @@ footer p{font-size:.76rem;color:var(--muted);}
           <li>Built working prototype using PHP, MySQL, XAMPP</li>
           <li>System put on hold — exploring rebuild using Agentic AI approach</li>
         </ul>
+      </div>
+
+      <div class="subsection">
+        <p class="subsection-label">Pivot — Rebuilding with Agentic AI</p>
+        <p>The original PHP/XAMPP prototype is on hold. The new direction is to rebuild the Room Booking System using the <strong>Agentic AI (OpenClaw)</strong> setup from Project 04 instead of traditional manual coding.</p>
+        <p><strong>Current stage:</strong> Building the interface for the new Agentic-AI-powered Room Booking System.</p>
+        <p><strong>Next steps:</strong> Deploy the system on the school's IIS server so anyone can access the website · Figure out how other developers can use the Agentic AI setup on their own devices so they can collaborate on this and future projects.</p>
       </div>
     </div>
   </div>
@@ -635,10 +568,15 @@ footer p{font-size:.76rem;color:var(--muted);}
           <li>Discussion sessions with Mr Sie Kee and Dr Wong on architecture</li>
           <li>Tested complex tasks on the OpenClaw system after Linux migration</li>
         </ul>
+        <div class="subsection">
+          <p class="subsection-label">Powering the Next Project</p>
+          <p>This Agentic AI setup is now the foundation for rebuilding the <strong>Room Booking System</strong> (Project 02) — see the pivot note above.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
 <hr class="rule"/>
 <section class="section" id="timeline">
   <div class="section-header">
@@ -661,7 +599,7 @@ footer p{font-size:.76rem;color:var(--muted);}
       <a class="tl-nav-item" href="#week8">Week 08</a>
       <a class="tl-nav-item" href="#week9">Week 09</a>
       <a class="tl-nav-item" href="#week10">Week 10</a>
-      <a class="tl-nav-item" style="opacity:.35;pointer-events:none;">Week 11+</a>
+      <a class="tl-nav-item" style="opacity:.35;pointer-events:none;">Week 11–13</a>
     </div>
     <div class="timeline-weeks">
 
@@ -887,7 +825,7 @@ footer p{font-size:.76rem;color:var(--muted);}
             <h5>Reflection</h5>
             <div class="refl-row"><span class="refl-key">Highlight</span><span class="refl-val">Major pivot this week — migrated OpenClaw from Windows to Linux Ubuntu with NVIDIA RTX 4090 GPU. Collaboration with Mr Sie Kee and Dr Wong to resolve the architecture challenges.</span></div>
             <div class="refl-row"><span class="refl-key">Learned</span><span class="refl-val">Hands-on Linux Ubuntu setup and system configuration · NVIDIA GPU driver setup for AI workloads · How GPU acceleration changes the performance profile of local LLM deployment · Real experience with fresh OS installation for production AI environments.</span></div>
-            <div class="refl-row"><span class="refl-key">Next</span><span class="refl-val">Continue refining OpenClaw on Linux Ubuntu · Verify GPU is fully utilised for AI processing · Continue GL assessment IT support as needed.</span></div>
+            <div class="refl-row"><span class="refl-key">Next</span><span class="refl-val">Continue refining OpenClaw on Linux Ubuntu · Verify GPU is fully utilised for AI processing · Start building the Room Booking System interface on Agentic AI · Continue GL assessment IT support as needed.</span></div>
           </div>
         </div>
       </div>
@@ -895,7 +833,7 @@ footer p{font-size:.76rem;color:var(--muted);}
       <div class="week-card future">
         <div class="week-header">
           <span class="week-num" style="color:var(--border);">11</span>
-          <div><p class="week-label">15 June 2026 onwards</p><p class="week-title" style="color:var(--muted);">Coming Soon…</p></div>
+          <div><p class="week-label">15 June – 5 July 2026</p><p class="week-title" style="color:var(--muted);">Final Weeks — Not Yet Started</p></div>
           <span class="week-toggle" style="color:var(--border);">—</span>
         </div>
       </div>
@@ -904,7 +842,6 @@ footer p{font-size:.76rem;color:var(--muted);}
   </div>
 </section>
 
-<!-- ─── SKILLS ─── -->
 <hr class="rule"/>
 <section class="section" id="skills">
   <div class="section-header">
@@ -927,11 +864,10 @@ footer p{font-size:.76rem;color:var(--muted);}
     <div class="bento-cell"><div class="bento-icon">🗄️</div><div class="bento-title">MySQL &amp; Backend</div><div class="bento-desc">Querying live school databases, syncing ANPR display with updated student and vehicle registration data.</div></div>
     <div class="bento-cell"><div class="bento-icon">📐</div><div class="bento-title">System Design</div><div class="bento-desc">SRS documentation, UML class diagrams, use case, sequence, ERD and DFD diagrams using Draw.io.</div></div>
     <div class="bento-cell"><div class="bento-icon">📦</div><div class="bento-title">APK Build</div><div class="bento-desc">Generating APK files using Android Studio and researching iOS IPA deployment via Expo EAS.</div></div>
-    <div class="bento-cell"><div class="bento-icon">🛠️</div><div class="bento-title">IT Support</div><div class="bento-desc">PC diagnostics, faulty peripherals, projector cables, Open Day setup, and computer lab maintenance.</div></div>
+    <div class="bento-cell"><div class="bento-icon">🛠️</div><div class="bento-title">IT Support</div><div class="bento-desc">PC diagnostics, faulty peripherals, projector cables, GL assessment and Open Day setup, computer lab maintenance.</div></div>
   </div>
 </section>
 
-<!-- ─── REFLECTIONS ─── -->
 <hr class="rule"/>
 <section class="section" id="reflections">
   <div class="section-header">
@@ -945,22 +881,22 @@ footer p{font-size:.76rem;color:var(--muted);}
     <div class="refl-card">
       <p class="refl-card-num">01 · Challenges</p>
       <h3 class="refl-card-title">Obstacles I've<br/>Pushed Through</h3>
-      <p class="refl-card-body">Joining an already-developed codebase demanded real effort to understand existing structure. SMTP restrictions blocked OTP for days. In Week 4, the backend was tied to a personal laptop causing mystery failures. In Week 5, firewall and port access required network administrator coordination. In Weeks 7–9, OpenClaw gateway issues and first-time exposure to Agentic AI — including GPU vs CPU configuration — added significant new technical complexity.</p>
+      <p class="refl-card-body">Joining an already-developed codebase demanded real effort to understand existing structure. SMTP restrictions blocked OTP for days. In Week 4, the backend was tied to a personal laptop causing mystery failures. In Week 5, firewall and port access required network administrator coordination. In Weeks 7–10, OpenClaw gateway issues and first-time exposure to Agentic AI — including a full Windows-to-Linux migration with GPU configuration — added significant new technical complexity.</p>
     </div>
     <div class="refl-card">
       <p class="refl-card-num">02 · Lessons</p>
       <h3 class="refl-card-title">What I've<br/>Learned to Do</h3>
-      <p class="refl-card-body">Read existing code before making changes. When one solution fails, pivot systematically. Production systems depend on correct server and DNS config, not just correct code. Proper documentation — SRS, UML, ERD, DFD — is as important as the code itself. New technologies like Agentic AI require patience and research before diving into debugging.</p>
+      <p class="refl-card-body">Read existing code before making changes. When one solution fails, pivot systematically. Production systems depend on correct server and DNS config, not just correct code. Proper documentation — SRS, UML, ERD, DFD — is as important as the code itself. New technologies like Agentic AI require patience and research before diving into debugging — and sometimes the right move is to put a project on hold and rebuild it the smarter way.</p>
     </div>
     <div class="refl-card">
       <p class="refl-card-num">03 · Pride</p>
       <h3 class="refl-card-title">What I'm<br/>Proud Of</h3>
-      <p class="refl-card-body">Proposing and fully implementing OTP from scratch. Successfully deploying the ANPR backend to the school's production server. Adding unregistered vehicle monitoring as a proactive new feature. Being trusted with the Lost &amp; Found System from design to UAT to IIS deployment. Now contributing to an Agentic AI project — four real systems delivered across one internship.</p>
+      <p class="refl-card-body">Proposing and fully implementing OTP from scratch. Successfully deploying the ANPR backend to the school's production server. Adding unregistered vehicle monitoring as a proactive new feature. Being trusted with the Lost &amp; Found System from design to UAT to IIS deployment — now live and publicly accessible. Now contributing to an Agentic AI project that's becoming the foundation for future systems.</p>
     </div>
     <div class="refl-card">
       <p class="refl-card-num">04 · Ahead</p>
       <h3 class="refl-card-title">What's<br/>Coming Next</h3>
-      <p class="refl-card-body">Continue refining OpenClaw on Linux Ubuntu with NVIDIA RTX 4090 GPU — verifying full GPU utilisation for AI processing. Complete the industrial training final report. Wrap up the final two weeks of the internship strong, with all four systems documented and delivered.</p>
+      <p class="refl-card-body">Build the interface for the new Agentic-AI-powered Room Booking System. Deploy it on the school's IIS server so anyone can access it publicly. Figure out how other developers can run the Agentic AI setup on their own devices for collaboration. Complete the industrial training final report and wrap up the final weeks of the internship strong.</p>
     </div>
   </div>
 </section>
@@ -981,7 +917,6 @@ footer p{font-size:.76rem;color:var(--muted);}
 </footer>
 
 <script>
-/* CURSOR */
 const cur=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
@@ -991,7 +926,6 @@ document.querySelectorAll('a,button,.week-header,.bento-cell,.activity-cell,.ref
   el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';ring.style.width='36px';ring.style.height='36px';});
 });
 
-/* AVATAR FALLBACK */
 const avatarImg=document.getElementById('avatarImg');
 avatarImg.onerror=function(){
   const wrap=document.getElementById('avatarWrap');
@@ -999,7 +933,6 @@ avatarImg.onerror=function(){
   wrap.innerHTML='<div class="profile-avatar-ph">Add<br/>me.jpeg</div>';
 };
 
-/* HELP LOGO FALLBACK */
 const helpLogo=document.getElementById('helpLogo');
 helpLogo.onerror=function(){
   const circle=document.getElementById('helpLogoCircle');
@@ -1007,20 +940,16 @@ helpLogo.onerror=function(){
   circle.innerHTML='<div class="help-logo-circle-ph">HELP<br/>International<br/>School</div>';
 };
 
-/* WEEK ACCORDION */
 function toggleWeek(h){const c=h.closest('.week-card');if(!c.classList.contains('future'))c.classList.toggle('open');}
 
-/* SCROLL ANIMATIONS */
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.12});
 document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
 
-/* PROGRESS BAR */
 const pb=document.getElementById('progressBar');
 pb.style.width='0';
 const pbObs=new IntersectionObserver(entries=>{if(entries[0].isIntersecting){pb.style.width='83.3%';pbObs.disconnect();}},{threshold:.5});
 pbObs.observe(pb);
 
-/* TIMELINE NAV */
 const weeks=document.querySelectorAll('.week-card[id]');
 const navItems=document.querySelectorAll('.tl-nav-item[href]');
 const tlObs=new IntersectionObserver(entries=>{
