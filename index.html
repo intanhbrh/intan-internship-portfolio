@@ -34,8 +34,8 @@ nav,section,footer,.hero,.marquee-wrap,hr.rule{position:relative;z-index:1;}
 .profile-avatar-ph{font-family:var(--mono);font-size:.55rem;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;text-align:center;padding:.5rem;line-height:1.4;}
 .name-row{display:flex;align-items:center;gap:1.5rem;margin-bottom:.25rem;}
 .help-logo-panel{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;height:100%;padding:3rem;}
-.help-logo-circle{width:140px;height:140px;border-radius:50%;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;overflow:hidden;}
-.help-logo-circle img{width:80px;height:80px;object-fit:contain;filter:brightness(0) invert(1);opacity:.85;}
+.help-logo-circle{width:140px;height:140px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.help-logo-circle img{width:100px;height:100px;object-fit:contain;}
 .help-logo-circle-ph{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;color:rgba(255,255,255,.3);text-transform:uppercase;text-align:center;padding:.5rem;}
 .help-panel-text{text-align:center;}
 .help-panel-text h2{font-family:var(--serif);font-size:1.6rem;font-weight:400;color:rgba(255,255,255,.85);line-height:1.2;margin-bottom:.5rem;}
@@ -268,7 +268,7 @@ footer p{font-size:.76rem;color:var(--muted);}
         <div class="help-panel-divider"></div>
         <div class="help-panel-text">
           <h2>HELP International<br/>School</h2>
-          <p>EdTech Department · Shah Alam</p>
+          <p>EdTech Department · Kuala Lumpur</p>
         </div>
       </div>
       <div class="help-panel-meta">
@@ -317,7 +317,7 @@ footer p{font-size:.76rem;color:var(--muted);}
         <tr><td>Company Sup.</td><td>Lau Sie Kee</td></tr>
         <tr><td>Faculty Sup.</td><td>Lim Siew Ling</td></tr>
         <tr><td>Duration</td><td>3 months · 12 weeks</td></tr>
-        <tr><td>Progress</td><td>Week 11 (89% complete)</td></tr>
+        <tr><td>Progress</td><td>Week 11 (91% complete)</td></tr>
         <tr><td>Stack</td><td>React Native, Expo, Node.js, MySQL, PHP, Socket.IO, SendGrid, IIS, OpenClaw, Ollama</td></tr>
       </table>
     </div>
@@ -536,18 +536,18 @@ footer p{font-size:.76rem;color:var(--muted);}
     <div>
       <div class="project-images">
         <div class="proj-img-main" id="pimg11">
-          <img src="openclaw.jpeg" alt="OpenClaw system" onerror="document.getElementById('pimg11').innerHTML='<div class=\'img-ph\'><div class=\'img-ph-icon\'>🤖</div><span class=\'img-ph-label\'>openclaw.png</span></div>'"/>
+          <img src="openclaw.jpeg" alt="OpenClaw " onerror="document.getElementById('pimg11').innerHTML='<div class=\'img-ph\'><div class=\'img-ph-icon\'>🤖</div><span class=\'img-ph-label\'>openclaw.jpeg</span></div>'"/>
         </div>
         <div class="proj-img-row">
           <div>
             <div class="proj-img-sm" id="pimg12">
-              <img src="nemoclaw.jpeg" alt="NemoClaw" onerror="document.getElementById('pimg12').innerHTML='<div class=\'img-ph\'><div class=\'img-ph-icon\'>🧠</div><span class=\'img-ph-label\'>nemoclaw.png</span></div>'"/>
+              <img src="nemoclaw.jpeg" alt="NemoClaw" onerror="document.getElementById('pimg12').innerHTML='<div class=\'img-ph\'><div class=\'img-ph-icon\'>🧠</div><span class=\'img-ph-label\'>nemoclaw.jpeg</span></div>'"/>
             </div>
-            <p class="img-caption">NemoClaw interface</p>
+            <p class="img-caption">NemoClaw </p>
           </div>
           <div>
             <div class="proj-img-sm" id="pimg13">
-              <img src="agenticai.jpeg" alt="Agentic AI setup" onerror="document.getElementById('pimg13').innerHTML='<div class=\'img-ph\'><div class=\'img-ph-icon\'>⚡</div><span class=\'img-ph-label\'>agenticai.png</span></div>'"/>
+              <img src="agenticai.jpeg" alt="Agentic AI setup" onerror="document.getElementById('pimg13').innerHTML='<div class=\'img-ph\'><div class=\'img-ph-icon\'>⚡</div><span class=\'img-ph-label\'>agenticai.jpeg</span></div>'"/>
             </div>
             <p class="img-caption">Agentic AI setup</p>
           </div>
@@ -605,7 +605,8 @@ footer p{font-size:.76rem;color:var(--muted);}
       <a class="tl-nav-item" href="#week8">Week 08</a>
       <a class="tl-nav-item" href="#week9">Week 09</a>
       <a class="tl-nav-item" href="#week10">Week 10</a>
-      <a class="tl-nav-item" style="opacity:.35;pointer-events:none;">Week 11–13</a>
+      <a class="tl-nav-item" href="#week11">Week 11</a>
+      <a class="tl-nav-item" style="opacity:.35;pointer-events:none;">Week 12</a>
     </div>
     <div class="timeline-weeks">
 
@@ -836,10 +837,27 @@ footer p{font-size:.76rem;color:var(--muted);}
         </div>
       </div>
 
+      <div class="week-card" id="week11">
+        <div class="week-header" onclick="toggleWeek(this)">
+          <span class="week-num">11</span>
+          <div><p class="week-label">15 June – 19 June 2026</p><p class="week-title">Coming Soon — Add your week 11 tasks here</p></div>
+          <span class="week-toggle">+</span>
+        </div>
+        <div class="week-body">
+          <div class="day-rows">
+            <div class="day-row"><span class="day-date">Coming</span><span class="day-text">Update this section with your Week 11 logbook entries.</span></div>
+          </div>
+          <div class="week-reflection">
+            <h5>Reflection</h5>
+            <div class="refl-row"><span class="refl-key">Update</span><span class="refl-val">Add your Week 11 reflection here.</span></div>
+          </div>
+        </div>
+      </div>
+
       <div class="week-card future">
         <div class="week-header">
-          <span class="week-num" style="color:var(--border);">11</span>
-          <div><p class="week-label">15 June – 5 July 2026</p><p class="week-title" style="color:var(--muted);">Final Weeks — Not Yet Started</p></div>
+          <span class="week-num" style="color:var(--border);">12</span>
+          <div><p class="week-label">22 June – 5 July 2026</p><p class="week-title" style="color:var(--muted);">Final Week — Coming Soon</p></div>
           <span class="week-toggle" style="color:var(--border);">—</span>
         </div>
       </div>
@@ -859,9 +877,9 @@ footer p{font-size:.76rem;color:var(--muted);}
   </div>
   <div class="bento fade-up">
     <div class="bento-cell wide">
-      <div class="bento-big-num">10</div>
+      <div class="bento-big-num">11</div>
       <div class="bento-title">Weeks Complete</div>
-      <div class="bento-desc">83% through a 12-week internship — OpenClaw now on Linux Ubuntu with NVIDIA RTX 4090. Four active systems delivered across HELP International School's EdTech department.</div>
+      <div class="bento-desc">91% through a 12-week internship — final week approaching. OpenClaw running on Linux Ubuntu with NVIDIA RTX 4090. Four active systems delivered across HELP International School's EdTech department.</div>
     </div>
     <div class="bento-cell"><div class="bento-icon">📱</div><div class="bento-title">React Native &amp; Expo</div><div class="bento-desc">Cross-platform mobile apps, navigation, state management, APK builds via EAS and Android Studio.</div></div>
     <div class="bento-cell"><div class="bento-icon">🔐</div><div class="bento-title">OTP Auth</div><div class="bento-desc">Full implementation: SMTP research → SendGrid → sender verification → inbox delivery.</div></div>
@@ -939,6 +957,13 @@ avatarImg.onerror=function(){
   wrap.innerHTML='<div class="profile-avatar-ph">Add<br/>me.jpeg</div>';
 };
 
+const helpLogo=document.getElementById('helpLogo');
+helpLogo.onerror=function(){
+  const circle=document.getElementById('helpLogoCircle');
+  this.style.display='none';
+  circle.innerHTML='<div class="help-logo-circle-ph">HELP<br/>International<br/>School</div>';
+};
+
 function toggleWeek(h){const c=h.closest('.week-card');if(!c.classList.contains('future'))c.classList.toggle('open');}
 
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.12});
@@ -946,7 +971,7 @@ document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
 
 const pb=document.getElementById('progressBar');
 pb.style.width='0';
-const pbObs=new IntersectionObserver(entries=>{if(entries[0].isIntersecting){pb.style.width='83.3%';pbObs.disconnect();}},{threshold:.5});
+const pbObs=new IntersectionObserver(entries=>{if(entries[0].isIntersecting){pb.style.width='91.7%';pbObs.disconnect();}},{threshold:.5});
 pbObs.observe(pb);
 
 const weeks=document.querySelectorAll('.week-card[id]');
