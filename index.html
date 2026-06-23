@@ -939,13 +939,6 @@ avatarImg.onerror=function(){
   wrap.innerHTML='<div class="profile-avatar-ph">Add<br/>me.jpeg</div>';
 };
 
-const helpLogo=document.getElementById('helpLogo');
-helpLogo.onerror=function(){
-  const circle=document.getElementById('helpLogoCircle');
-  this.style.display='none';
-  circle.innerHTML='<div class="help-logo-circle-ph">HELP<br/>International<br/>School</div>';
-};
-
 function toggleWeek(h){const c=h.closest('.week-card');if(!c.classList.contains('future'))c.classList.toggle('open');}
 
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.12});
